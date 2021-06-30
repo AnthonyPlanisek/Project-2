@@ -8,4 +8,8 @@ router.get('/', async (req, res) => {
   res.render('homepage')
 })
 
+router.get('/logout', async (req, res) => {
+  res.render('logout')
+})
+
 module.exports = router
