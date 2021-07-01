@@ -23,8 +23,9 @@ const config = {
   auth0Logout: true,
   secret: process.env.DB_SECRET,
   baseURL: 'http://localhost:3001',
-  clientID: 'Vih0KDnhRhsdKsY0TZuZZrtX1Mp2JGei',
-  issuerBaseURL: 'https://dev-vmi4zpd7.us.auth0.com'
+  clientID: process.env.AUTH0_CLIENT_ID,
+  issuerBaseURL: process.env.AUTH0_DOMAIN
+
 }
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
