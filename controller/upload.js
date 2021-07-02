@@ -13,14 +13,9 @@ const uploadFiles = async (req, res) => {
     Image.create({
       type: req.file.mimetype,
       name: req.file.originalName,
-      data: fs.readFileSync(
-        __basedir + "/resources/static/assets/uploads/" + req.file.filename
-      ),
+      data: fs.readFileSync(__basedir + "/uploads/" + req.file.filename),
     }).then((image) => {
-      fs.writeFileSync(
-        __basedir + "/resources/static/assets/tmp/" + image.name,
-        image.data
-      );
+      fs.writeFileSync(__basedir + "/tmp/" + image.name, image.data);
 
       return res.send(`File has been uploaded.`);
     });

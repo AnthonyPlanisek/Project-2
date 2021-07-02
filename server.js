@@ -8,6 +8,7 @@ const { auth } = require('express-openid-connect')
 const sequelize = require('./config/config')
 const router = require('./routes/index')
 const hbs = exphbs.create({})
+const initRoutes = require('./routes/uploadRoutes');
 
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
@@ -39,11 +40,9 @@ app.get('/', (req, res) => {
 })
 
 global.__basedir = __dirname;
-db.sequelize.sync();
-
 app.use(express.urlencoded({ extended: true }));
-initRoutes(app);
+initRoutes( );
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'))
-})
+});
