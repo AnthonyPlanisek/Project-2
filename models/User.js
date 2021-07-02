@@ -11,11 +11,11 @@
 //       primaryKey: true,
 //       autoIncrement: true
 //     },
-//     dish_name: {
+//     userName: {
 //       type: DataTypes.STRING,
 //       allowNull: false
 //     },
-//     description: {
+//     password: {
 //       type: DataTypes.STRING,
 //       allowNull: true
 //     },
