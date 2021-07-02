@@ -38,6 +38,12 @@ app.get('/', (req, res) => {
   res.send(req.oidc.isAuthenticated() ? res.redirect('/api/profile') : res.redirect('/login'))
 })
 
+global.__basedir = __dirname;
+db.sequelize.sync();
+
+app.use(express.urlencoded({ extended: true }));
+initRoutes(app);
+
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'))
 })
