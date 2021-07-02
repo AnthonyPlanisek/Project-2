@@ -22,7 +22,7 @@ User.init(
     },
     lastName: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
@@ -43,6 +43,11 @@ User.init(
         len: [8],
       },
     },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    }
   },
   {
     hooks: {
