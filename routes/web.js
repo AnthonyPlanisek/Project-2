@@ -5,7 +5,7 @@ const uploadController = require('../controllers/upload')
 const upload = require('../middleware/upload')
 
 const routes = (app) => {
-  router.get('/upload', homeController.getHome)
+  router.get('/', homeController.getHome)
 
   router.post('/upload', upload.single('file'), uploadController.uploadFiles)
 
