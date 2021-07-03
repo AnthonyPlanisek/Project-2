@@ -9,6 +9,7 @@ const helmet = require('helmet')
 const PORT = process.env.PORT || 3333
 const app = express()
 const db = require('./models')
+const uploadRoutes = require('./routes/uploadRoutes')
 
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: false }))
@@ -59,5 +60,7 @@ db.sequelize.sync(syncOptions).then(() => {
     console.log(`App listening on port: ${PORT}`)
   })
 })
+
+app.use('/upload', uploadRoutes)
 
 module.exports = app

@@ -7,6 +7,6 @@ services:
   - mysql
 cache:
   directories:
-    - node_modules
+    - node_modulesx
 before_install:
   - mysql -e 'CREATE DATABASE project2_test;'
