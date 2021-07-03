@@ -10,6 +10,10 @@ const PORT = process.env.PORT || 3333
 const app = express()
 const db = require('./models')
 const uploadRoutes = require('./routes/uploadRoutes')
+const initRoutes = require('./routes/web')
+
+global.__basedir = __dirname
+initRoutes(app)
 
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: false }))
@@ -28,6 +32,7 @@ require('./config/passport')(db, app, passport) // pass passport for configurati
 // Define our routes
 app.use('/api', require('./routes/apiRoutes')(passport, db))
 app.use(require('./routes/htmlRoutes')(db))
+app.use(require('./routes/uploadRoutes')(db))
 
 // Secure express app
 app.use(helmet.hsts({
