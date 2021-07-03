@@ -31,6 +31,7 @@ Object.keys(db).forEach(modelName => {
   }
 })
 
+db.images = require('./image.model.js')(sequelize, Sequelize)
 db.sequelize = sequelize
 db.Sequelize = Sequelize
 

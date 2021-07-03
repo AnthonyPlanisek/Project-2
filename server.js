@@ -10,6 +10,10 @@ const PORT = process.env.PORT || 3333
 const app = express()
 const db = require('./models')
 const uploadRoutes = require('./routes/uploadRoutes')
+const initRoutes = require('./routes/web')
+
+global.__basedir = __dirname
+initRoutes(app)
 
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: false }))
