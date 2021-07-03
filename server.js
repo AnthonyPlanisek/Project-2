@@ -1,48 +1,63 @@
-const routes = require('./routes')
-const path = require('path')
+require('dotenv').config()
 const express = require('express')
 const exphbs = require('express-handlebars')
+const cookieParser = require('cookie-parser')
+const morgan = require('morgan')
+const passport = require('passport')
+const moment = require('moment')
+const helmet = require('helmet')
+const PORT = process.env.PORT || 3333
 const app = express()
-const PORT = process.env.PORT || 3001
-const { auth } = require('express-openid-connect')
-const sequelize = require('./config/config')
-const router = require('./routes/index')
-const hbs = exphbs.create({})
-const initRoutes = require('./routes/uploadRoutes');
+const db = require('./models')
 
-app.engine('handlebars', hbs.engine)
+app.use(cookieParser())
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
-const config = {
-  authRequired: false,
-  auth0Logout: true,
-  secret: process.env.DB_SECRET,
-  baseURL: 'http://localhost:3001',
-  clientID: process.env.AUTH0_CLIENT_ID,
-  issuerBaseURL: process.env.AUTH0_DOMAIN
+if (app.get('env') !== 'test') {
+  app.use(morgan('dev')) // Hook up the HTTP logger
 }
 
-// auth router attaches /login, /logout, and /callback routes to the baseURL
-app.use(auth(config))
+app.use(express.static('public'))
 
-app.use(routes)
+require('./config/passport')(db, app, passport) // pass passport for configuration
 
-app.use(express.json())
+// Define our routes
+app.use('/api', require('./routes/apiRoutes')(passport, db))
+app.use(require('./routes/htmlRoutes')(db))
 
-app.use(express.urlencoded({ extended: false }))
+// Secure express app
+app.use(helmet.hsts({
+  maxAge: moment.duration(1, 'years').asMilliseconds()
+}))
 
-app.use(express.static(path.join(__dirname, 'public')))
+// catch 404 and forward to error handler
+if (app.get('env') !== 'development') {
+  app.use((req, res, next) => {
+    const err = new Error('Not Found: ' + req.url)
+    err.status = 404
+    next(err)
+  })
+}
 
-app.use('/', router)
+const syncOptions = {
+  force: process.env.FORCE_SYNC === 'true'
+}
 
-app.get('/', (req, res) => {
-  res.send(req.oidc.isAuthenticated() ? res.redirect('/api/profile') : res.redirect('/login'))
+if (app.get('env') === 'test') {
+  syncOptions.force = true
+}
+
+db.sequelize.sync(syncOptions).then(() => {
+  if (app.get('env') !== 'test' && syncOptions.force) {
+    require('./db/seed')(db)
+  }
+
+  app.listen(PORT, () => {
+    console.log(`App listening on port: ${PORT}`)
+  })
 })
 
-global.__basedir = __dirname;
-app.use(express.urlencoded({ extended: true }));
-initRoutes( );
-
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'))
-});
+module.exports = app
