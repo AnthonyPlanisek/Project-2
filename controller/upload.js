@@ -1,24 +1,24 @@
 const fs = require('fs')
 const db = require('../models')
-const Image = db.images
+const image = db.images
 
 const uploadFiles = async (req, res) => {
   try {
     console.log(req.file)
 
-    if (req.file == undefined) {
+    if (req.file === undefined) {
       return res.send(`You must select a file.`)
     }
 
-    Image.create({
+    image.create({
       type: req.file.mimetype,
       name: req.file.originalname,
       data: fs.readFileSync(
-        __basedir + '../uploads/' + req.file.filename
+        '../uploads/' + req.file.filename
       )
     }).then((image) => {
       fs.writeFileSync(
-        __basedir + '../tmp/' + image.name,
+        '../tmp/' + image.name,
         image.data
       )
 
