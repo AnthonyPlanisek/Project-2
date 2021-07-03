@@ -3,8 +3,10 @@ const router = express.Router()
 const uploadController = require('../controller/upload')
 const upload = require('../middleware/middleware')
 
-router.post('/upload', upload.single('file'), uploadController.uploadFiles)
+const routes = (app) => {
+  router.post('/upload', upload.single('file'), uploadController.uploadFiles)
 
-router.use('/upload', router)
+  return router.use('/upload', router)
+}
 
-module.exports = router
+module.exports = routes
