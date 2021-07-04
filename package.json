@@ -4,7 +4,8 @@
   "description": "Project2 Starter with Express, Handlebars, Sequelize, and Authentication with Passport.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server/index.js",
+    "dev": "nodemon server",
     "lint": "eslint . --ext .js --quiet",
     "fix": "eslint --fix .",
     "test": "npm run lint"
@@ -47,7 +48,7 @@
     "express-openid-connect": "^2.4.0",
     "express-session": "^1.17.2",
     "helmet": "^4.1.1",
-    "moment": "^2.29.0",
+    "moment": "^2.29.1",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "mysql2": "^2.2.5",
@@ -56,6 +57,7 @@
     "passport-facebook": "^3.0.0",
     "passport-google": "^0.3.0",
     "passport-local": "^1.0.0",
+    "socket.io": "^4.1.2",
     "passport-twitter": "^1.0.4",
     "sequelize": "^6.6.4",
     "util": "^0.12.4"
@@ -68,6 +70,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.1",
-    "prettier": "^2.3.2"
+    "nodemon": "^2.0.9",
+    "prettier": "^2.1.2"
   }
 }
