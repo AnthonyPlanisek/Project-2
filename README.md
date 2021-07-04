@@ -8,7 +8,7 @@
 
 ### Emmett Rushin
 
-### Burke Betty
+### Burke Beatty
 
 ## Work in progress title
 
