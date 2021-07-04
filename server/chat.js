@@ -3,7 +3,7 @@ const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
-app.use(express.static(__dirname + '/../client'));
+app.use(express.static(__dirname + '/games'));
 
 http.listen(3001);
 
@@ -21,7 +21,7 @@ socket.on('user connected', payload => {
         };
 
         socket.broadcast.emit('user connected', users[socket.id]);
-    })
+    }),
 
     socket.on('user typing', () => {
         typers[socket.id] = 1;
@@ -30,13 +30,13 @@ socket.on('user connected', payload => {
             user: users[socket.id].name,
             typers: Object.keys(typers).length
         })
-    })
+    }),
 
     socket.on('user stopped typing', () => {
         delete typers[socket.id]
 
         socket.broadcast.emit('user stopped typing', Object.keys(typers).length);
-    })
+    }),
 
     socket.on('send message', payload => {
         delete typers[socket.id]
@@ -46,5 +46,6 @@ socket.on('user connected', payload => {
             message: payload.message,
             typers: Object.keys(typers).length
         })
-    })
+    }),
 })
+
