@@ -8,6 +8,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     data: {
       type: DataTypes.BLOB('long')
+    },
+    user: {
+      type: DataTypes.STRING
     }
   })
 
