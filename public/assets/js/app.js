@@ -133,19 +133,19 @@ $('#login').on('click', function (event) {
 })
 //some game logic///
 
-const score = 0;
+// const score = 0;
 
 
-function initialize() {
-  panorama = new google.maps.StreetViewPanorama(
-    document.getElementById("streetViewBox"),
-    {
-      position: GeolocationCoordinates,
-      pov: { heading: 165, pitch: 0 },
-      zoom: 1,
-    }
-  )
-}
+// function initialize() {
+//   panorama = new google.maps.StreetViewPanorama(
+//     document.getElementById("streetViewBox"),
+//     {
+//       position: GeolocationCoordinates,
+//       pov: { heading: 165, pitch: 0 },
+//       zoom: 1,
+//     }
+//   )
+// }
 // initialize();
 
 // const guess = () =>{
