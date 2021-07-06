@@ -1,3 +1,12 @@
+body {
+    font-family:'Concert One', cursive;
+    background-image: url('golden.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 .container {
     margin-top: 25vh
 }
