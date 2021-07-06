@@ -1,11 +1,16 @@
 body {
     font-family:'Concert One', cursive;
-    background-image: url('golden.jpg');
+    background-image: url('./images/golden.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-color: #36747d;
+}
+
+.navbar {
+    background-color: #36747d;
+    color: #FFF;
 }
 
 .container {
@@ -21,14 +26,28 @@ body {
     color: #FFF
 }
 
-#welcomeImage {
+/* #welcomeImage {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 15%
+    margin-top: 13%
+} */
+
+#handWorld {
+    background-image: url('./images/geoguesser_example.jpg');
+    background-position: center center;
+    background-size: cover;
+    border-radius: 5px;
+
 }
 
-.navbar {
-    background-color: #36747d;
-    color: #FFF;
+@media screen and (max-width: 991px) {
+    #handWorld {
+        display: none;
+    }
+    #cardText {
+        justify-content: center;
+        align-items: center;
+
+    }
 }
