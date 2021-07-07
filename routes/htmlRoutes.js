@@ -34,6 +34,10 @@ module.exports = (db) => {
       res.redirect('/')
     }
   })
+  // Load Main chat page
+  router.get('/chat', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'chat.html'))
+  })
 
   // Load dashboard page
   router.get('/', (req, res) => {
