@@ -25,7 +25,7 @@ if (app.get('env') !== 'test') {
   app.use(morgan('dev')) // Hook up the HTTP logger
 }
 
-app.use(express.static('public'))
+app.use(express.static('./public'))
 
 require('./config/passport')(db, app, passport) // pass passport for configuration
 
