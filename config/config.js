@@ -17,7 +17,7 @@ module.exports = {
     logging: false
   },
   production: {
-    'use_env_variable': 'JAWSDB_URL',
+    host: process.env.SEQUELIZE_HOST,
     dialect: 'mysql'
   }
 }
