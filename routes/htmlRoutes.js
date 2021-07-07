@@ -1,6 +1,5 @@
 const router = require('express').Router()
 const path = require('path')
-
 module.exports = (db) => {
   // Load register page
   router.get('/register', (req, res) => {
@@ -9,6 +8,10 @@ module.exports = (db) => {
     } else {
       res.render('register')
     }
+  })
+
+  router.get('/chat', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'chat.html'))
   })
 
   // Load profile page
