@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const path = require('path')
 
 module.exports = (db) => {
   // Load register page
@@ -28,6 +29,10 @@ module.exports = (db) => {
     } else {
       res.redirect('/')
     }
+  })
+  // Load Main chat page
+  router.get('/chat', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'chat.html'))
   })
 
   // Load dashboard page
