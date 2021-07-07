@@ -17,7 +17,11 @@ module.exports = {
     logging: false
   },
   production: {
+    username: process.env.SEQUELIZE_USER,
+    password: process.env.SEQUELIZE_PASSWORD,
+    database: 'r8slsdf3kfxci3fp',
+    dialect: 'mysql',
     host: process.env.SEQUELIZE_HOST,
-    dialect: 'mysql'
+    port: 3306
   }
 }
