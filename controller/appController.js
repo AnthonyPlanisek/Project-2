@@ -21,8 +21,8 @@ module.exports = function (db) {
   }
 }
 
-////google api search, US city data needs uploaded////
-//need to update local host to jawsdb once space is available///
+/// /google api search, US city data needs uploaded////
+// need to update local host to jawsdb once space is available///
 
 // const mysql = require('mysql');
 
@@ -32,7 +32,7 @@ module.exports = function (db) {
 //     password: "password",
 //     database: "cityTest"
 //   });
-  
+
 //   con.connect(function(err) {
 //     if (err) throw err;
 //     con.query("SELECT * FROM cityInfo ORDER BY RAND() LIMIT 1;", function(err, result, fields){
@@ -40,7 +40,7 @@ module.exports = function (db) {
 //       console.log(result)
 //       result.forEach(r => {
 //         console.log(`${r.state_name} is the answer. ${r.lat},${r.lng} is the coordinates`)
-        
+
 //       });
 //     })
 //   });
