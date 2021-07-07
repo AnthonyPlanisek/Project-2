@@ -1,3 +1,6 @@
+// const { initialize } = require("passport")
+// const { init } = require("../../../server")
+
 $('#add-user').on('click', function (event) {
   event.preventDefault()
 
@@ -128,3 +131,25 @@ $('#login').on('click', function (event) {
     }
   })
 })
+//some game logic///
+
+const score = 0;
+
+
+function initialize() {
+  panorama = new google.maps.StreetViewPanorama(
+    document.getElementById("streetViewBox"),
+    {
+      position: GeolocationCoordinates,
+      pov: { heading: 165, pitch: 0 },
+      zoom: 1,
+    }
+  )
+}
+// initialize();
+
+// const guess = () =>{
+//   let guess = socket.
+// }
+
+
