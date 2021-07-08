@@ -28,7 +28,7 @@ module.exports = (db) => {
         }
         // console.log(user);
         res.render('profile', user)
-        console.log(req.session.passport.user.id)
+        console.log('id!!!!!!!!!!!!!!!!!!!', req.session.passport.user.id)
       })
     } else {
       res.redirect('/')
