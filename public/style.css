@@ -36,16 +36,6 @@ li {
     margin-bottom: 20px;
 }
 
-h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 72px;
-    text-align: center;
-    color: #FFF;
-    margin: 0;
-}
 
 .geobox{
     width: 66%;
@@ -91,6 +81,7 @@ hr:after {
     padding: 2px;
     border-radius: 40px;
     margin-right: 20px;
+    ;
     
 }
 .timer{
@@ -181,7 +172,10 @@ hr:after {
     font-style: italic;
     font-size: 16px;
 }
-
+.feed {
+    height: 80vh;
+    overflow: scroll;
+}
 .feedback i {
     color: #E6BB46;
 }
