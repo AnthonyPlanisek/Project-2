@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 const socket = io()
 
 const dom = {
@@ -39,9 +40,9 @@ const addEntry = ({ user, message }, you) => {
 
 const addWelcomeMessage = (user, you) => {
   const welcomeMessage = document.createElement('li')
-  const message = you ?
-    'You have joined the conversation' :
-    `<span class="user-name">${user.name}</span> has joined the conversation`
+  const message = you
+    ? 'You have joined the conversation'
+    : `<span class="user-name">${user.name}</span> has joined the conversation`
 
   const avatar = you ? '' : `<span class="avatar" style="background: ${user.avatar}; background-size: contain;"></span>`
 
@@ -82,7 +83,10 @@ const enterChannel = () => {
   })
 }
 
-socket.on('user connected', payload => addWelcomeMessage(payload, false))
+socket.on('user connected', payload => {
+  console.log('New user connected', payload)
+  addWelcomeMessage(payload, false)
+})
 
 socket.on('user typing', ({ user, typers }) => {
   dom.feedback.innerHTML = typers > 1 ? 'Several people are typing' : `<i>${user}</i> is typing`
@@ -133,5 +137,3 @@ dom.joinButton.onclick = e => {
     }
   }
 }
-
-
