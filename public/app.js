@@ -36,11 +36,8 @@ const addEntry = ({ user, message }, you) => {
     `
 
   dom.feed.appendChild(entry)
-  //   const $li = $('<li>').text(message)
-  // $(dom.feed).append($li)
   const elmnt = document.getElementsByClassName('feed')
   const yaxis = elmnt[0].scrollTop
-  console.log(yaxis)
   const newaxis = yaxis + 100
   elmnt[0].scrollTop = newaxis
 }
