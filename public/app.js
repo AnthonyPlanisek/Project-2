@@ -83,7 +83,10 @@ const enterChannel = () => {
   })
 }
 
-socket.on('user connected', payload => addWelcomeMessage(payload, false))
+socket.on('user connected', payload => {
+  console.log('New user connected', payload)
+  addWelcomeMessage(payload, false)
+})
 
 socket.on('user typing', ({ user, typers }) => {
   dom.feedback.innerHTML = typers > 1 ? 'Several people are typing' : `<i>${user}</i> is typing`
