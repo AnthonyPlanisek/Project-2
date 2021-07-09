@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-undef
+// const db = require('./models')
+// const axios = require('axios')
 const socket = io()
-
 const dom = {
   nameInput: document.querySelector('.name-input'),
   joinButton: document.querySelector('.join'),
@@ -62,10 +63,22 @@ const addWelcomeMessage = (user, you) => {
   dom.feed.appendChild(welcomeMessage)
 }
 
-const enterChannel = () => {
+const enterChannel = async () => {
   const avatar = getAvatar()
-  const name = dom.nameInput.value
+  // CHANGED CODE
+  let name
+  const xhr = new XMLHttpRequest()
+  xhr.withCredentials = true
 
+  xhr.addEventListener('readystatechange', function () {
+    if (this.readyState === 4) {
+      console.log(this.responseText)
+      name = this.responseText.userInfo
+    }
+  })
+
+  xhr.open('GET', 'http://localhost:3333/authuser')
+  xhr.send()
   dom.joinButton.remove()
   dom.welcomeMessage.remove()
 
