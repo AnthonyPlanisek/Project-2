@@ -3,7 +3,7 @@ const User = require('../models/user')
 const alert = require('alert')
 
 const uploadFiles = (req, res) => {
-  console.log('id!!!!!!!!!!!!!!!!', req.session.passport.user.id)
+  // console.log('id!!!!!!!!!!!!!!!!', req.session.passport.user.id)
   try {
     console.log(req.file)
 
