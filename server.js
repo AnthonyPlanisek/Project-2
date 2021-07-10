@@ -12,6 +12,7 @@ const app = express()
 const db = require('./models')
 const uploadRoutes = require('./routes/uploadRoutes')
 const initRoutes = require('./routes/web')
+const game = require('./routes/htmlRoutes')
 const http = require('http')
 const { Server } = require('socket.io')
 const server = http.createServer(app)
@@ -65,6 +66,7 @@ db.sequelize.sync(syncOptions).then(() => {
     require('./db/seed')(db)
   }
 
+  // socket.io chat
   const users = {}
   const typers = {}
 
@@ -117,5 +119,6 @@ db.sequelize.sync(syncOptions).then(() => {
 })
 
 app.use('/upload', uploadRoutes)
+app.use('/game', game)
 
 module.exports = app
