@@ -5,6 +5,7 @@
 
 body {
     font-family:'Concert One', cursive;
+overflow: hidden;
     background-color: white;
 }
 
@@ -36,24 +37,19 @@ ul {
  max-width: 100%;
   height: auto;
 
+    
 }
 .geobox{
  width: 60vw;
  height: auto;
  float: left;
-}
-.chatbox{
-background-color:#212121;
+ object-fit: contain;
 }
 
-.geobox{
-    width: 66%;
-    height: 100%;
-    background-color: #212121;
+h1{
+    margin-left: 1em;
 }
-.chatbox{
-background-color:#212121;
-}
+
 
 time {
     font-size: 90%;
@@ -91,6 +87,7 @@ hr:after {
     padding: 2px;
     border-radius: 40px;
     margin-right: 20px;
+    overflow: hidden;
     
 }
 .timer{
@@ -110,7 +107,7 @@ hr:after {
 .message-input .avatar {
     position: absolute;
     left: 8px;
-    top: 75%;
+    top: 82%;
     transform: translateY(-50%);
     background: #FFF;
     text-align: center;
@@ -126,9 +123,9 @@ hr:after {
     background:#36747d;
     color: #FFF;
     outline: none;
-    height: 10%;
+    height: 8%;
     position: fixed;
-    bottom: 10%;
+    bottom: 7%;
     box-shadow: 0px 5px 8px 0px #212121;
     border-radius: 3px;
 }
@@ -187,6 +184,7 @@ hr:after {
     height: 100vh;
     width: 30vw;
     float: right;
+    border-left: 10px solid #36747d;
 }
 
 .feed {
@@ -236,6 +234,7 @@ hr:after {
 .navbar {
     background-color: #36747d;
     color: #FFF;
+    z-index: 5;
 }
 
 .container {
@@ -248,3 +247,23 @@ hr:after {
     color: #FFF
 }
 
+img {
+    padding-top: 10px;
+  }
+
+  #street-view {
+    height: 87.5vh;
+    width: 70vw;
+    /* Google inverts the colours if you don't have any billing set up.
+    We can go around this by adding a counter invert filter on top of the street view */
+    filter: invert(0);  
+  }
+
+  .gm-iv-address{
+      display:none !important;
+  }
+.testme{
+    background-color: aqua;
+    height: 200px;
+    width: 200px;
+}
