@@ -2,6 +2,7 @@ body {
     font-family:'Concert One', cursive;
     background-color: #36747d;
     color: white;
+
 }
 
 .navbar {
@@ -14,6 +15,7 @@ body {
 
 .card {
     background-color: #36747d;
+    color:white;
 }
 
 .cb-slideshow,
