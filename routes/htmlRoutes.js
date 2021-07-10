@@ -15,8 +15,32 @@ module.exports = (db) => {
 
   router.get('/chat', (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'chat.html'))
+    // db.User.findOne({
+    //   where: {
+    //     id: req.session.passport.user.id
+    //   }
+    // }).then(() => {
+    //   const user = {
+    //     userInfo: req.session.passport.user.userName,
+    //     isloggedin: req.isAuthenticated()
+    //   }
+    //   console.log('@@@@', user)
+    //   res.json(user)
+    // })
   })
-
+  router.get('/authuser', (req, res) => {
+    console.log('hello', req.session.passport.user)
+    db.User.findOne({
+      where: {
+        id: req.session.passport.user.id
+      }
+    }).then(() => {
+      const user = {
+        userInfo: req.session.passport.user
+      }
+      res.json(user)
+    })
+  })
   // Load profile page
   router.get('/profile', (req, res) => {
     if (req.isAuthenticated()) {
@@ -29,7 +53,6 @@ module.exports = (db) => {
           userInfo: req.session.passport.user,
           isloggedin: req.isAuthenticated()
         }
-        // console.log(user);
         res.render('profile', user)
       })
     } else {
@@ -50,7 +73,7 @@ module.exports = (db) => {
       }
       res.sendFile(path.join(__dirname, '../views', 'game.bootstrap.html'))
     } else {
-      res.render('dashboard')
+      res.render('register')
     }
   })
 
@@ -61,9 +84,21 @@ module.exports = (db) => {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       }
-      res.render('dashboard', user)
+      res.sendFile(path.join(__dirname, '../views', 'game.bootstrap.html'))
     } else {
-      res.render('dashboard')
+      res.render('/register')
+    }
+  })
+
+  router.get('/game', (req, res) => {
+    if (req.isAuthenticated()) {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      }
+      res.sendFile(path.join(__dirname, '../public', 'chat.html'))
+    } else {
+      res.render('/register')
     }
   })
 

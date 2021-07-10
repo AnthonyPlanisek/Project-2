@@ -53,6 +53,15 @@ li {
 background-color:#212121;
 }
 
+.geobox{
+    width: 66%;
+    height: 100%;
+    background-color: #212121;
+}
+.chatbox{
+background-color:#212121;
+}
+
 time {
     font-size: 90%;
     color: #212121;
@@ -126,10 +135,13 @@ hr:after {
     color: #FFF;
     outline: none;
     height: 10%;
+<<<<<<< HEAD
+=======
     position: fixed;
     bottom: 10%;
 box-shadow: 0px 5px 8px 0px #212121;
 border-radius: 3px;
+>>>>>>> main
 }
 
 .picclass {
