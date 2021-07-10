@@ -53,26 +53,22 @@ module.exports = (db) => {
           userInfo: req.session.passport.user,
           isloggedin: req.isAuthenticated()
         }
-        // console.log(user);
         res.render('profile', user)
       })
     } else {
       res.redirect('/')
     }
   })
+  // Load Main chat page
+  router.get('/chat', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'chat.html'))
+  })
 
   // Load dashboard page
   router.get('/', (req, res) => {
-    if (req.isAuthenticated()) {
-      const user = {
-        user: req.session.passport.user,
-        isloggedin: req.isAuthenticated()
-      }
-      res.sendFile(path.join(__dirname, '../views', 'game.bootstrap.html'))
-    } else {
-      res.render('dashboard')
-    }
-  })
+    res.sendFile(path.join(__dirname, '../views', 'game.bootstrap.html'))
+  }
+  )
 
   // Load dashboard page
   router.get('/dashboard', (req, res) => {
