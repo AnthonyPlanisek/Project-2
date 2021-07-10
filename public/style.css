@@ -1,12 +1,17 @@
 ::placeholder {
     font-style: italic;
-    color: white;
+    color: rgba(0, 0, 0, 0.527);
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 body {
     font-family:'Concert One', cursive;
 overflow: hidden;
     background-color: white;
+    
 }
 
 .navbar {
@@ -24,24 +29,24 @@ overflow: hidden;
     color: white;
     text-align: center;
     z-index: -100;
-    height: 6%;
+    height: 60px;
   }
-
+.colorcheat{
+    background-color: #36747d;
+    width: 70vw;
+    height: 90vh;
+    float: left;
+}
 ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
 }
 
-.geopic{
- max-width: 100%;
-  height: auto;
 
-    
-}
 .geobox{
  width: 60vw;
- height: auto;
+ height:80vh;
  float: left;
  object-fit: contain;
 }
@@ -83,7 +88,7 @@ hr:after {
 
 .message-input {
     position: relative;
-    width: 140%;
+    width: 60%;
     padding: 2px;
     border-radius: 40px;
     margin-right: 20px;
@@ -118,16 +123,16 @@ hr:after {
 .message-input-field {
     width: 100%;
     box-sizing: border-box;
-    padding: 12px 12px 12px 42px;
-    border: 0;
-    background:#36747d;
-    color: #FFF;
-    outline: none;
+    padding: 12px 12px 12px 12px;
+    color: rgb(14, 1, 1);
+    
     height: 8%;
     position: fixed;
     bottom: 7%;
     box-shadow: 0px 5px 8px 0px #212121;
     border-radius: 3px;
+    border: solid #36747d 5px;
+    margin: 0px 0px 10px 10px;
 }
 
 .picclass {
@@ -185,10 +190,11 @@ hr:after {
     width: 30vw;
     float: right;
     border-left: 10px solid #36747d;
+    margin-right: 20px;
 }
 
 .feed {
-    height: 80vh;
+    height: 72vh;
     overflow: scroll;
 }
 .feedback i {
@@ -237,9 +243,7 @@ hr:after {
     z-index: 5;
 }
 
-.container {
-    margin-top: 25vh
-}
+
 
 #welcomeCard {
    
@@ -247,12 +251,10 @@ hr:after {
     color: #FFF
 }
 
-img {
-    padding-top: 10px;
-  }
+
 
   #street-view {
-    height: 87.5vh;
+    height: 85vh;
     width: 70vw;
     /* Google inverts the colours if you don't have any billing set up.
     We can go around this by adding a counter invert filter on top of the street view */
@@ -262,8 +264,3 @@ img {
   .gm-iv-address{
       display:none !important;
   }
-.testme{
-    background-color: aqua;
-    height: 200px;
-    width: 200px;
-}
