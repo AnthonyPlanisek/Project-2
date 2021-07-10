@@ -42,9 +42,16 @@ module.exports = (db) => {
 
   // Load dashboard page
   router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../views', 'game.bootstrap.html'))
-  }
-  )
+    if (req.isAuthenticated()) {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      }
+      res.sendFile(path.join(__dirname, '../views', 'game.bootstrap.html'))
+    } else {
+      res.render('register')
+    }
+  })
 
   // Load dashboard page
   router.get('/dashboard', (req, res) => {
@@ -53,9 +60,21 @@ module.exports = (db) => {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       }
-      res.render('dashboard', user)
+      res.sendFile(path.join(__dirname, '../views', 'game.bootstrap.html'))
     } else {
-      res.render('dashboard')
+      res.render('/register')
+    }
+  })
+
+  router.get('/game', (req, res) => {
+    if (req.isAuthenticated()) {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      }
+      res.sendFile(path.join(__dirname, '../views', 'gameRound.html'))
+    } else {
+      res.render('/register')
     }
   })
 
