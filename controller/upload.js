@@ -1,23 +1,28 @@
 const fs = require('fs')
-const db = require('../models')
-const Image = db.images
+const User = require('../models/user')
 const alert = require('alert')
 
-const uploadFiles = async (req, res) => {
+const uploadFiles = (req, res) => {
+  // console.log('id!!!!!!!!!!!!!!!!', req.session.passport.user.id)
   try {
     console.log(req.file)
 
-    if (req.file == undefined) {
+    if (req.file === undefined) {
       return alert(`You must select a file.`)
     }
 
-    Image.create({
+    User.update({
       type: req.file.mimetype,
-      name: req.file.originalname,
+      imageName: req.file.originalname,
       data: fs.readFileSync(
         __basedir + '/uploads/' + req.file.filename
       )
-    }).then((image) => {
+    }, {
+      where: {
+        id: req.session.passport.user.id
+      }
+    }
+    ).then((image) => {
       fs.writeFileSync(
         __basedir + '/tmp/' + image.name,
         image.data

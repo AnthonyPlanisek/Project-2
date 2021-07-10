@@ -31,6 +31,15 @@ module.exports = function (sequelize, DataTypes) {
     isAdmin: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
+    },
+    type: {
+      type: DataTypes.STRING
+    },
+    imageName: {
+      type: DataTypes.STRING
+    },
+    data: {
+      type: DataTypes.BLOB('long')
     }
   }, {
     timestamps: true,

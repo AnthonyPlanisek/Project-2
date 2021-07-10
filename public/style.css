@@ -44,6 +44,21 @@ li {
 }
 
 
+
+.geopic{
+ max-width: 100%;
+  height: auto;
+
+}
+.geobox{
+ width: 60vw;
+ height: auto;
+ float: left;
+}
+.chatbox{
+background-color:#212121;
+}
+
 .geobox{
     width: 66%;
     height: 100%;
