@@ -66,6 +66,7 @@ db.sequelize.sync(syncOptions).then(() => {
     require('./db/seed')(db)
   }
 
+  // socket.io chat
   const users = {}
   const typers = {}
 
