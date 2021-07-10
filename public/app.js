@@ -157,4 +157,3 @@ dom.joinButton.onclick = e => {
     }
   }
 }
-
