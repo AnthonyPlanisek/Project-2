@@ -1,6 +1,23 @@
 // eslint-disable-next-line no-undef
+// const db = require('./models')
+// const axios = require('axios')
 const socket = io()
+let exampleName
+const xhr = new XMLHttpRequest()
+xhr.withCredentials = true
 
+xhr.addEventListener('readystatechange', function () {
+  if (this.readyState === 4) {
+    const parsedData = JSON.parse(this.responseText)
+    console.log('!!!!!', parsedData)
+    console.log(parsedData.userInfo)
+    console.log(parsedData.userInfo.userName)
+    exampleName = parsedData.userInfo.userName
+  }
+})
+
+xhr.open('GET', 'http://localhost:3333/authuser') // change to heroku
+xhr.send()
 const dom = {
   nameInput: document.querySelector('.name-input'),
   joinButton: document.querySelector('.join'),
@@ -62,10 +79,9 @@ const addWelcomeMessage = (user, you) => {
   dom.feed.appendChild(welcomeMessage)
 }
 
-const enterChannel = () => {
+const enterChannel = async () => {
   const avatar = getAvatar()
-  const name = dom.nameInput.value
-
+  console.log(exampleName)
   dom.joinButton.remove()
   dom.welcomeMessage.remove()
 
@@ -76,13 +92,13 @@ const enterChannel = () => {
   dom.inputAvatar.style.backgroundImage = avatar
   dom.inputAvatar.style.backgroundSize = 'contain'
 
-  user.name = name
+  user.name = exampleName
   user.avatar = avatar
 
   addWelcomeMessage({ avatar }, true)
 
   socket.emit('user connected', {
-    name,
+    exampleName,
     avatar
   })
 }

@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const exphbs = require('express-handlebars')
+const path = require('path')
 const cookieParser = require('cookie-parser')
 const morgan = require('morgan')
 const passport = require('passport')
@@ -29,8 +30,8 @@ if (app.get('env') !== 'test') {
   app.use(morgan('dev')) // Hook up the HTTP logger
 }
 
-app.use(express.static('public'))
-
+// app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')))
 require('./config/passport')(db, app, passport) // pass passport for configuration
 
 // Define our routes

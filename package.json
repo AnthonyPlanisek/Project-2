@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "alert": "^5.0.10",
+    "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
     "bootstrap": "^5.0.2",
     "connect-session-sequelize": "^7.0.3",
