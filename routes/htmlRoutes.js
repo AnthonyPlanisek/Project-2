@@ -96,7 +96,7 @@ module.exports = (db) => {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       }
-      res.sendFile(path.join(__dirname, '../views', 'gameRound.html'))
+      res.sendFile(path.join(__dirname, '../public', 'chat.html'))
     } else {
       res.render('/register')
     }
