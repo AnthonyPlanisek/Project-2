@@ -1,9 +1,16 @@
 ::placeholder {
     font-style: italic;
+    color: white;
 }
-.navbar-dark {
+
+body {
+    font-family:'Concert One', cursive;
+    overflow: hidden;
+}
+
+.navbar{
    
-    background: #252535;
+    background: #36747d;
     
 }
 
@@ -12,7 +19,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #252535;
+    background-color: #36747d;
     color: white;
     text-align: center;
     z-index: -100;
@@ -36,15 +43,14 @@ li {
     margin-bottom: 20px;
 }
 
-h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 72px;
-    text-align: center;
-    color: #FFF;
-    margin: 0;
+
+.geobox{
+    width: 66%;
+    height: 100%;
+    background-color: #212121;
+}
+.chatbox{
+background-color:#212121;
 }
 
 .geobox{
@@ -83,11 +89,12 @@ hr:after {
    
     position: fixed;
     bottom: 0;
+  
 }
 
 .message-input {
     position: relative;
-    width: 90%;
+    width: 140%;
     padding: 2px;
     border-radius: 40px;
     margin-right: 20px;
@@ -110,7 +117,7 @@ hr:after {
 .message-input .avatar {
     position: absolute;
     left: 8px;
-    top: 49%;
+    top: 75%;
     transform: translateY(-50%);
     background: #FFF;
     text-align: center;
@@ -119,15 +126,22 @@ hr:after {
 }
 
 .message-input-field {
-    border-radius: 30px;
+    
     width: 100%;
     box-sizing: border-box;
     padding: 12px 12px 12px 42px;
     border: 0;
-    background: #252535;
+    background:#36747d;
     color: #FFF;
     outline: none;
     height: 10%;
+<<<<<<< HEAD
+=======
+    position: fixed;
+    bottom: 10%;
+box-shadow: 0px 5px 8px 0px #212121;
+border-radius: 3px;
+>>>>>>> main
 }
 
 .picclass {
@@ -136,12 +150,9 @@ hr:after {
     
 }
 
-.messaging-form .message-input-field:focus {
-    background:#252535f0;
-}
 
 .join {
-    background: white;
+    background: rgb(255, 255, 255);
     border: 0;
     color: #252535;
     font-weight: bold;
@@ -149,6 +160,9 @@ hr:after {
     border-radius: 3px;
     cursor: pointer;
     box-shadow: 0px 5px 8px 0px #212121;
+    position: fixed;
+    bottom: 12%;
+    right: 30%;
 }
 
 .welcome-message {
@@ -169,7 +183,7 @@ hr:after {
 }
 
 .welcome-message-text .user-name {
-    color: #E6BB46;
+    color: #252535;
     margin-right: 10px;
 }
 
@@ -181,7 +195,16 @@ hr:after {
     font-style: italic;
     font-size: 16px;
 }
+.chatbody{
+    height: 100vh;
+    width: 30vw;
+    float: right;
+}
 
+.feed {
+    height: 80vh;
+    overflow: scroll;
+}
 .feedback i {
     color: #E6BB46;
 }
@@ -196,7 +219,7 @@ hr:after {
 }
 
 .message-body {
-    color: #FFF;
+    color: rgb(255, 255, 255);
 }
 
 .user-name {
@@ -221,3 +244,25 @@ hr:after {
 .message-entry-own .user-name {
     color: #212121;
 }
+
+body {
+    font-family:'Concert One', cursive;
+    
+    background-color: #36747d; 
+}
+
+.navbar {
+    background-color: #36747d;
+    color: #FFF;
+}
+
+.container {
+    margin-top: 25vh
+}
+
+#welcomeCard {
+   
+    background-color: #36747d;
+    color: #FFF
+}
+
