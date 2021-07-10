@@ -6,23 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../public/assets/css/card.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
     <title>Game Page</title>
 </head>
 <body>
+  <div>
+  <ul class="cb-slideshow unstyled">
+	<li>
+		<span>Image 01</span>
+	</li>
+	<li>
+    <span>Image 02</span>
+  </li>
+  <li>
+    <span>Image 03</span>
+  </li>
+  <li>
+		<span>Image 04</span>
+	</li>
+	<li>
+    <span>Image 05</span>
+  </li>
+  <li>
+    <span>Image 06</span>
+  </li>
+</ul>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a id="welcomeCard" class="navbar-brand" href="./index.html">GeoGuessr</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a id="welcomeCard" class="nav-link active p-3" aria-current="page" href="#">****'s Profile</a>
+              </li>
+              <li class="nav-item">
+                <a id="welcomeCard" class="nav-link active p-3" href="#">Logout</a>
+              </li>
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Find your friends!" aria-label="Search">
+                <button class="btn btn-dark btn-outline-light" type="submit">Search</button>
+              </form>
+            </ul>
+          </div>
+        </div>
+    </nav>
     <div class="container">
         <div>
-            <div id="welcomeCard" class="card text-white bg-warning w-50 mx-auto mt-5 p-3">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="../Images/geoguesser_example.jpg" class="img-fluid rounded" alt="geoguesser_example">
+            <div id="welcomeCard" class="card text-white w-50 mx-auto mt-5 p-3">
+                <div  id='cardText' class="row g-0">
+                    <div id='handWorld' class="col-md-4">
+                        <!-- <img id="welcomeImage" src="../public/assets/css/geoguesser_example.jpg" class="img-fluid rounded" alt="geoguesser_example"> -->
                     </div>
                     <div class="col-md-8">
                         <div class="card-body text-dark">
-                            <h5 class="card-title text-center">Welcome to our game!</h5>
-                            <p class="card-text text-center">Choose from any of our fun and educational geolocation guessing games:</p>
+                            <h5 id="welcomeCard" class="card-title text-center">Welcome to our game!</h5>
+                            <p id="welcomeCard" class="card-text text-center">Choose from any of our fun and educational geolocation guessing games:</p>
                             <div class="d-grid gap-2 w-75 mx-auto">
-                                <button class="btn btn-dark btn-outline-light" type="button">United States Empire</button>
-                                <button class="btn btn-dark btn-outline-light" type="button">World</button>
+                                <button class="btn btn-dark btn-outline-light" type="button">United States</button>
+                                <button class="btn btn-dark btn-outline-light" type="button">Rest of the World</button>
                             </div>
                     </div>
               </div>
@@ -30,4 +76,8 @@
           </div>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../public/assets/js/background.js"></script>
 </html>
