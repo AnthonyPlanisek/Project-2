@@ -1,5 +1,8 @@
 const router = require('express').Router()
 const path = require('path')
+const express = require('express')
+const app = express()
+
 module.exports = (db) => {
   // Load register page
   router.get('/register', (req, res) => {
@@ -65,7 +68,7 @@ module.exports = (db) => {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       }
-      res.render('dashboard', user)
+      res.sendFile(path.join(__dirname, '../views', 'game.bootstrap.html'))
     } else {
       res.render('dashboard')
     }
