@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 const socket = io()
 
 const dom = {
@@ -17,9 +18,9 @@ const user = {
 const getAvatar = () => {
   const size = Math.floor(Math.random() * 100) + 25
   // replace URL with Database ID for avatar
-  return `url(https://avatars.githubusercontent.com/u/80352968?s=400&u=385777ed7f1f01ffa80d5627175d8b83990be181&v=4${size}/${size})`
+  return `url(https://i.pravatar.cc/300${size}/${size})`
 }
-
+// actual chat message block being entered
 const addEntry = ({ user, message }, you) => {
   const entry = document.createElement('li')
   const date = new Date()
@@ -35,13 +36,17 @@ const addEntry = ({ user, message }, you) => {
     `
 
   dom.feed.appendChild(entry)
+  const elmnt = document.getElementsByClassName('feed')
+  const yaxis = elmnt[0].scrollTop
+  const newaxis = yaxis + 100
+  elmnt[0].scrollTop = newaxis
 }
 
 const addWelcomeMessage = (user, you) => {
   const welcomeMessage = document.createElement('li')
-  const message = you ?
-    'You have joined the conversation' :
-    `<span class="user-name">${user.name}</span> has joined the conversation`
+  const message = you
+    ? 'You have joined the conversation'
+    : `<span class="user-name">${user.name}</span> has joined the conversation`
 
   const avatar = you ? '' : `<span class="avatar" style="background: ${user.avatar}; background-size: contain;"></span>`
 
@@ -82,7 +87,10 @@ const enterChannel = () => {
   })
 }
 
-socket.on('user connected', payload => addWelcomeMessage(payload, false))
+socket.on('user connected', payload => {
+  console.log('New user connected', payload)
+  addWelcomeMessage(payload, false)
+})
 
 socket.on('user typing', ({ user, typers }) => {
   dom.feedback.innerHTML = typers > 1 ? 'Several people are typing' : `<i>${user}</i> is typing`
@@ -133,5 +141,3 @@ dom.joinButton.onclick = e => {
     }
   }
 }
-
-
