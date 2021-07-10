@@ -15,8 +15,32 @@ module.exports = (db) => {
 
   router.get('/chat', (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'chat.html'))
+    // db.User.findOne({
+    //   where: {
+    //     id: req.session.passport.user.id
+    //   }
+    // }).then(() => {
+    //   const user = {
+    //     userInfo: req.session.passport.user.userName,
+    //     isloggedin: req.isAuthenticated()
+    //   }
+    //   console.log('@@@@', user)
+    //   res.json(user)
+    // })
   })
-
+  router.get('/authuser', (req, res) => {
+    console.log('hello', req.session.passport.user)
+    db.User.findOne({
+      where: {
+        id: req.session.passport.user.id
+      }
+    }).then(() => {
+      const user = {
+        userInfo: req.session.passport.user
+      }
+      res.json(user)
+    })
+  })
   // Load profile page
   router.get('/profile', (req, res) => {
     if (req.isAuthenticated()) {
@@ -35,10 +59,6 @@ module.exports = (db) => {
     } else {
       res.redirect('/')
     }
-  })
-  // Load Main chat page
-  router.get('/chat', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'chat.html'))
   })
 
   // Load dashboard page
