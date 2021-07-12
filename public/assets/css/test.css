@@ -16,11 +16,6 @@ body {
     color:white;
 }
 
-.card #registerCard {
-    border: 0.40rem solid #f8f9fa;
-    top: 10%;
-}
-
 .cb-slideshow,
 .cb-slideshow:after { 
     position: fixed;
