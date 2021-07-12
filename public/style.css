@@ -1,6 +1,7 @@
 
 
 
+
 ul {
     margin: 0;
     padding: 0;
@@ -11,6 +12,8 @@ ul {
 
 h1{
     margin-left: 1em;
+    font-size: .5em;
+
 }
 
 
@@ -22,6 +25,7 @@ time {
 p {
     margin: 10px 0 0;
     color: #212121;
+    
 }
 
 hr {
@@ -41,25 +45,27 @@ hr:after {
 
 
 .avatar {
-    width: 25px;
-    height: 25px;
+    width: 45px;
+    height: 45px;
     border-radius: 100%;
-    display: block;
+    margin-left: 80%;
+  
 }
 
 
 
 .message-entry-own .avatar {
     
-    left: 20%;
+    left: 90%;
 }
 
 
 .welcome-message-text {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 1.2em;
+    font-size: .9em;
     color: #212121;
 }
 
@@ -115,9 +121,9 @@ body{
     right: 10%;
     background-color: rgb(255, 255, 255);
     z-index: 10;
-    height: 50%;
+    min-width: 340px;
     padding: 20px;
-    height:55vh;
+    
     width: 20vw;
     border-radius: 2%;
     border: solid #36747d 6px;
@@ -177,17 +183,20 @@ body{
 /*this aligns YOUR chat messages to the right side of the chat box*/
 .message-entry-own .message-body {
     text-align: right;
-    background-color: teal;
+    background-color: #36737d34;
     padding: 2%;
     border-radius: 13px 13px 0px 13px;
     margin-left: 45%;
+    margin-top: 4%;
+    border: #36747d solid 3px;
 }
 /*avatar stuff*/
 .avatar {
     width: 25px;
     height: 25px;
     border-radius: 100%;
-    display: block;
+    margin-top: 2%;
+    float: right;
 }
 .message-entry-own .avatar {
     margin-right: 0;
@@ -211,6 +220,7 @@ body{
 .feed {
     height: 45vh;
     overflow: scroll;
+    margin-bottom: 5%;
 }
 .feedback i {
     color: #E6BB46;
@@ -232,7 +242,7 @@ body{
 
 .message-input .avatar {
     position: absolute;
-    left: 8px;
+    
     top: 82%;
     transform: translateY(-50%);
     background: #FFF;
@@ -242,17 +252,17 @@ body{
 }
 
 .message-input-field {
-    width: 20%;
+    position: relative;
     box-sizing: border-box;
     padding: 12px 12px 12px 12px;
     color: rgba(8, 2, 2, 0.856);
-    position: fixed;
-    height: 8%;
-    right: 10%;
-    bottom: 10%;
+    width: 100%;
+    bottom: 0;
+   
     border: solid #36747d 5px;
-    border-radius: 3px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;}
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;}
+
 
     /* #mydiv {
         position: absolute;
@@ -267,7 +277,7 @@ body{
           width: 2em;
         padding: 10px;
         cursor: move;
-        z-index: 10;
+        z-index: 112;
         background-color: #2196F3;
         color: #fff;
       }
