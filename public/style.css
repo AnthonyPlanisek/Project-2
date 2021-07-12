@@ -1,42 +1,6 @@
-::placeholder {
-    font-style: italic;
-    color: rgba(0, 0, 0, 0.527);
-}
 
-::-webkit-scrollbar {
-    display: none;
-}
 
-body {
-    font-family:'Concert One', cursive;
-overflow: hidden;
-    background-color: white;
-    
-}
 
-.navbar {
-    background-color: #36747d;
-    color: #FFF;
-    z-index: 4;
-}
-
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #36747d;
-    color: white;
-    text-align: center;
-    z-index: -100;
-    height: 60px;
-  }
-.colorcheat{
-    background-color: #36747d;
-    width: 70vw;
-    height: 90vh;
-    float: left;
-}
 ul {
     margin: 0;
     padding: 0;
@@ -44,12 +8,6 @@ ul {
 }
 
 
-.geobox{
- width: 60vw;
- height:80vh;
- float: left;
- object-fit: contain;
-}
 
 h1{
     margin-left: 1em;
@@ -57,7 +15,7 @@ h1{
 
 
 time {
-    font-size: 90%;
+    font-size: 78%;
     color: #212121;
 }
 
@@ -79,35 +37,198 @@ hr:after {
     font-weight: bold;
 }
 
-.messaging-form {
-   
-    position: fixed;
-    bottom: 0;
-  
-}
 
-.message-input {
-    position: relative;
-    width: 60%;
-    padding: 2px;
-    border-radius: 40px;
-    margin-right: 20px;
-    overflow: hidden;
-    
-}
-.timer{
-    color: white;
-    position: fixed;
-    right: 0;
-    margin-right: 20px;
-    margin-top: 10px;
-}
+
+
 .avatar {
     width: 25px;
     height: 25px;
     border-radius: 100%;
     display: block;
 }
+
+
+
+.message-entry-own .avatar {
+    
+    left: 20%;
+}
+
+
+.welcome-message-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    color: #212121;
+}
+
+.welcome-message-text .avatar {
+    margin-right: 10px;
+}
+
+.welcome-message-text .user-name {
+    color: #252535;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+::placeholder {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.527);
+}
+body{
+    font-family:'Concert One', cursive;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+   /*This hides all scrollbars on the page(I dont want them in chat)*/
+    ::-webkit-scrollbar {
+        display: none;
+    } 
+
+    /*This hides the googlemap card showing where you are located*/
+  .gm-iv-address{
+      display:none !important;
+      filter: invert(0); 
+  }
+/*This is the main div for the entire chat body*/
+ 
+  .chatbody {
+    position: absolute;
+    top: 33%;
+    right: 10%;
+    background-color: rgb(255, 255, 255);
+    z-index: 10;
+    height: 50%;
+    padding: 20px;
+    height:55vh;
+    width: 20vw;
+    border-radius: 2%;
+    border: solid #36747d 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    color: white;
+    box-shadow: 10px 10px rgba(0,0,0,.15);
+ 
+ }
+
+ 
+
+  /*this is the div of the googlemaps display(it needs this to fill the parent div)*/
+  .geopic{
+      height: 100%;
+      width: 100%;
+  }
+  /*This is the parent div of the googlemaps display(adjust this to change size of the display img)*/
+.geobody { 
+    height:85vh;
+    width: 100vw;
+}
+  
+
+
+.navbar {
+    background-color: #36747d;
+    color: #FFF;
+    z-index: 5;
+}
+
+/*the height of the footer needs to be  "100 - (.geobody height vh)" so there is no gaps */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #36747d;
+    color: white;
+    text-align: center;
+   
+    height: 100%;
+    
+  }
+
+
+  #welcomeCard {
+   
+    background-color: #36747d;
+    color: #FFF
+} 
+
+/*this is the color of YOUR user name in chat*/
+.message-entry-own .user-name {
+    color: #212121;
+}
+
+/*this aligns YOUR chat messages to the right side of the chat box*/
+.message-entry-own .message-body {
+    text-align: right;
+    background-color: teal;
+    padding: 2%;
+    border-radius: 13px 13px 0px 13px;
+    margin-left: 45%;
+}
+/*avatar stuff*/
+.avatar {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    display: block;
+}
+.message-entry-own .avatar {
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+.message-entry .avatar {
+    margin-right: 20px;
+}
+.message-entry-own {
+    max-width: initial;
+    flex-direction: row-reverse;
+}
+
+/*This is user name of OTHER people in chat */
+.user-name {
+    color: #E6BB46;
+    font-weight: bold;
+}
+
+.feed {
+    height: 45vh;
+    overflow: scroll;
+}
+.feedback i {
+    color: #E6BB46;
+}
+
+.feedback {
+    position: absolute;
+    top: -25px;
+    left: 25px;
+    color: #FFF;
+    font-style: italic;
+    font-size: 16px;
+}
+.welcome-message-text .user-name {
+    color: #252535;
+    margin-right: 10px;
+}
+
 
 .message-input .avatar {
     position: absolute;
@@ -121,146 +242,32 @@ hr:after {
 }
 
 .message-input-field {
-    width: 100%;
+    width: 20%;
     box-sizing: border-box;
     padding: 12px 12px 12px 12px;
-    color: rgb(14, 1, 1);
-    
+    color: rgba(8, 2, 2, 0.856);
+    position: fixed;
     height: 8%;
-    position: fixed;
-    bottom: 7%;
-    box-shadow: 0px 5px 8px 0px #212121;
-    border-radius: 3px;
+    right: 10%;
+    bottom: 10%;
     border: solid #36747d 5px;
-    margin: 0px 0px 10px 10px;
-}
-
-.picclass {
-   width: 100%;
-   height: 100%;   
-}
-
-
-.join {
-    background: rgb(255, 255, 255);
-    border: 0;
-    color: #252535;
-    font-weight: bold;
-    padding: 5px 20px;
     border-radius: 3px;
-    cursor: pointer;
-    box-shadow: 0px 5px 8px 0px #212121;
-    position: fixed;
-    bottom: 12%;
-    right: 30%;
-}
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;}
 
-.welcome-message {
-    text-align: center;
-    color: #212121;
-    margin: 40px 0;
-}
-
-.welcome-message-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-}
-
-.welcome-message-text .avatar {
-    margin-right: 10px;
-}
-
-.welcome-message-text .user-name {
-    color: #252535;
-    margin-right: 10px;
-}
-
-.feedback {
-    position: absolute;
-    top: -25px;
-    left: 25px;
-    color: #FFF;
-    font-style: italic;
-    font-size: 16px;
-}
-.chatbody{
-    height: 100vh;
-    width: 30vw;
-    float: right;
-    border-left: 10px solid #36747d;
-    margin-right: 20px;
-}
-
-.feed {
-    height: 72vh;
-    overflow: scroll;
-}
-.feedback i {
-    color: #E6BB46;
-}
-
-.message-entry {
-    max-width: 350px;
-    display: flex;
-}
-
-.message-entry .avatar {
-    margin-right: 20px;
-}
-
-.message-body {
-    color: rgb(255, 255, 255);
-}
-
-.user-name {
-    color: #E6BB46;
-    font-weight: bold;
-}
-
-.message-entry-own {
-    max-width: initial;
-    flex-direction: row-reverse;
-}
-
-.message-entry-own .avatar {
-    margin-right: 0;
-    margin-left: 20px;
-}
-
-.message-entry-own .message-body {
-    text-align: right;
-}
-
-.message-entry-own .user-name {
-    color: #212121;
-}
-
-.navbar {
-    background-color: #36747d;
-    color: #FFF;
-    z-index: 5;
-}
-
-
-
-#welcomeCard {
-   
-    background-color: #36747d;
-    color: #FFF
-}
-
-
-
-  #street-view {
-    height: 85vh;
-    width: 70vw;
-    /* Google inverts the colours if you don't have any billing set up.
-    We can go around this by adding a counter invert filter on top of the street view */
-    filter: invert(0);  
-  }
-
-  .gm-iv-address{
-      display:none !important;
-  }
+    /* #mydiv {
+        position: absolute;
+        z-index: 9;
+        background-color: #f1f1f1;
+        text-align: center;
+        border: 1px solid #d3d3d3;
+      } */
+      
+      #mydivheader {
+          height: 2em;
+          width: 2em;
+        padding: 10px;
+        cursor: move;
+        z-index: 10;
+        background-color: #2196F3;
+        color: #fff;
+      }
