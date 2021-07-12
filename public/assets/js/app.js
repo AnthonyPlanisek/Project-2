@@ -1,25 +1,18 @@
-// const { initialize } = require("passport")
-// const { init } = require("../../../server")
-// const alert = require('alert')
-
-
 $('#add-user').on('click', function (event) {
   event.preventDefault()
 
   const newAccount = {
-    name: $('#registerName').val().trim(),
-    // lastName: $('#inputLast').val().trim(),
-    email: $('#registerEmail').val().trim(),
-    password: $('#registerPassword').val().trim()
+    userName: $('#inputFirst').val().trim(),
+    email: $('#inputEmail').val().trim(),
+    password: $('#inputPassword').val().trim()
   }
 
-  if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.name.length > 0) {
+  if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.firstName.length > 0) {
     $.ajax({
       type: 'POST',
       url: '/api/register',
       data: newAccount
     }).then(() => {
-      // alert('Account Created')
       window.location.href = '/'
     })
   } else {
@@ -35,8 +28,7 @@ $('#update-user').on('click', function (event) {
 
   // capture All changes
   const changeUser = {
-    firstName: $('#inputFirst').val().trim(),
-    lastName: $('#inputLast').val().trim(),
+    userName: $('#inputFirst').val().trim(),
     email: $('#inputEmail').val().trim(),
     password: $('#inputPassword').val().trim()
   }
@@ -133,6 +125,10 @@ $('#login').on('click', function (event) {
       $('#user-info').modal('hide')
     }
   })
+})
+
+$('#myModal').on('shown.bs.modal', function (modal) {
+  $('#myInput').trigger('focus')
 })
 //some game logic///
 
