@@ -1,6 +1,6 @@
 // const { initialize } = require("passport")
 // const { init } = require("../../../server")
-const alert = require('alert')
+// const alert = require('alert')
 
 
 $('#add-user').on('click', function (event) {
@@ -19,7 +19,7 @@ $('#add-user').on('click', function (event) {
       url: '/api/register',
       data: newAccount
     }).then(() => {
-      alert('Account Created')
+      // alert('Account Created')
       window.location.href = '/'
     })
   } else {
