@@ -16,7 +16,10 @@ body {
     background-color: #36747d;
     color: #FFF
 }
-
+#welcomeCardname {
+	background-color: #36747d;
+	color: #FFF
+}
 #handWorld {
     background-image: url('../images/geoguesser_example.jpg');
     background-position: center center;

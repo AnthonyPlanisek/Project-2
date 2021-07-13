@@ -5,7 +5,7 @@
 }
 *:focus {
 	outline: none;
-
+}
 ::placeholder {
 	font-style: italic;
 	color: rgba(0, 0, 0, 0.527);
@@ -17,6 +17,10 @@
 	z-index: 5;
 }
 #welcomeCard {
+	background-color: #36747d;
+	color: #FFF
+}
+#profileName {
 	background-color: #36747d;
 	color: #FFF
 }
