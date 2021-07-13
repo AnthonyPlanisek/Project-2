@@ -1,11 +1,10 @@
 ::placeholder {
-    font-style: italic;
     color: white;
 }
 
 body {
     font-family:'Concert One', cursive;
-overflow: hidden;
+    overflow: hidden;
     background-color: white;
 }
 
