@@ -62,8 +62,8 @@ const addEntry = ({ user, message }, you) => {
 const addWelcomeMessage = (user, you) => {
   const welcomeMessage = document.createElement('li')
   const message = you
-    ? 'You have joined the conversation'
-    : `<span class="user-name">${user.name}</span> has joined the conversation`
+    ? 'You have joined the game'
+    : `<span class="user-name">${user.name}</span> has joined the game`
 
   const avatar = you ? '' : `<span class="avatar" style="background: ${user.avatar}; background-size: contain;"></span>`
 

@@ -1,283 +1,210 @@
+/*This hides all scrollbars on the page(I dont want them in chat)*/
+::-webkit-scrollbar {
+	display: none;
+}
+*:focus {
+	outline: none;
+}
+::placeholder {
+	font-style: italic;
+	color: rgba(0, 0, 0, 0.527);
+}
+/*Styling for navbar*/
+.navbar {
+	background-color: #36747d;
+	color: #FFF;
+	z-index: 5;
+}
+#welcomeCard {
+	background-color: #36747d;
+	color: #FFF
+}
+/*the height of the footer needs to be "100 - (.geobody height vh)" so there is no gaps */
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #36747d;
+	color: white;
+	text-align: center;
+	height: 100%;
+}
 
-
-
-
+body{
+	font-family:'Concert One', cursive;
+	overflow-y: scroll;
+	height: 100%;
+	width: 100%;
+	margin-bottom: 50px;
+}
 ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
 }
-
-
-
 h1{
-    margin-left: 1em;
-    font-size: .5em;
-
+	margin-left: 1em;
+	font-size: .5em;
 }
-
-
 time {
-    font-size: 78%;
-    color: #212121;
+	font-size: 78%;
+	color: #212121;
 }
-
 p {
-    margin: 10px 0 0;
-    color: #212121;
-    
+	margin: 10px 0 0;
+	color: #212121;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
 hr {
-    border: 0;
-    margin: 0 0 10px;
-    text-align: center;
+	border: 0;
+	margin: 0 0 10px;
+	text-align: center;
 }
-
 hr:after {
-    content: '...';
-    font-size: 38px;
-    letter-spacing: 8px;
-    font-weight: bold;
+	content: '...';
+	font-size: 38px;
+	letter-spacing: 8px;
+	font-weight: bold;
 }
-
-
-
-
-.avatar {
-    width: 45px;
-    height: 45px;
-    border-radius: 100%;
-    margin-left: 80%;
-  
-}
-
-
 
 .message-entry-own .avatar {
-    
-    left: 90%;
+	left: 90%;
 }
-
-
 .welcome-message-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: .9em;
-    color: #212121;
-}
-
-.welcome-message-text .avatar {
-    margin-right: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: .9em;
+	color: #161414;
 }
 
 .welcome-message-text .user-name {
-    color: #252535;
-    margin-right: 10px;
+	color: #252535;
+	margin-right: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-::placeholder {
-    font-style: italic;
-    color: rgba(0, 0, 0, 0.527);
+/*This hides the googlemap card showing where you are located*/
+.gm-iv-address{
+	display:none !important;
+	filter: invert(0);
 }
-body{
-    font-family:'Concert One', cursive;
-    overflow-y: scroll;
-    height: 100%;
-    width: 100%;
-    margin-bottom: 50px;
+/*this is the div of the googlemaps display(it needs this to fill the parent div)*/
+.geopic{
+	height: 100%;
+	width: 100%;
 }
-
-   /*This hides all scrollbars on the page(I dont want them in chat)*/
-    ::-webkit-scrollbar {
-        display: none;
-    } 
-
-    /*This hides the googlemap card showing where you are located*/
-  .gm-iv-address{
-      display:none !important;
-      filter: invert(0); 
-  }
+/*This is the parent div of the googlemaps display(adjust this to change size of the display img)*/
+.geobody {
+	height:85vh;
+	width: 100vw;
+}
 /*This is the main div for the entire chat body*/
- 
-  .chatbody {
-    position: absolute;
-    top: 33%;
-    right: 10%;
-    background-color: rgb(255, 255, 255);
-    z-index: 10;
-    min-width: 340px;
-    padding: 20px;
-    
-    width: 20vw;
-    border-radius: 2%;
-    border: solid #36747d 6px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-    color: white;
-    box-shadow: 10px 10px rgba(0,0,0,.15);
- 
- }
-
- 
-
-  /*this is the div of the googlemaps display(it needs this to fill the parent div)*/
-  .geopic{
-      height: 100%;
-      width: 100%;
-  }
-  /*This is the parent div of the googlemaps display(adjust this to change size of the display img)*/
-.geobody { 
-    height:85vh;
-    width: 100vw;
-}
-  
-
-
-.navbar {
-    background-color: #36747d;
-    color: #FFF;
-    z-index: 5;
+.chatbody {
+	position: absolute;
+	top: 27%;
+	right: 10%;
+	background-color: rgb(255, 255, 255);
+	z-index: 10;
+	min-width: 340px;
+	max-width: 340px;
+	padding: 20px;
+	width: 20vw;
+	border-radius: 2%;
+	border: solid #36747d 6px;
+	color: white;
+	box-shadow: 10px 10px rgba(0,0,0,.15);
 }
 
-/*the height of the footer needs to be  "100 - (.geobody height vh)" so there is no gaps */
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #36747d;
-    color: white;
-    text-align: center;
-   
-    height: 100%;
-    
-  }
-
-
-  #welcomeCard {
-   
-    background-color: #36747d;
-    color: #FFF
-} 
 
 /*this is the color of YOUR user name in chat*/
 .message-entry-own .user-name {
-    color: #212121;
+	color: #212121;
 }
-
 /*this aligns YOUR chat messages to the right side of the chat box*/
 .message-entry-own .message-body {
-    text-align: right;
-    background-color: #36737d34;
-    padding: 2%;
-    border-radius: 13px 13px 0px 13px;
-    margin-left: 45%;
-    margin-top: 4%;
-    border: #36747d solid 3px;
+	text-align: right;
 }
 /*avatar stuff*/
 .avatar {
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    margin-top: 2%;
-    float: right;
-}
-.message-entry-own .avatar {
-    margin-right: 0;
-    margin-left: 20px;
+	width: 25px;
+	height: 25px;
+	border-radius: 100%;
+	margin-top: 2%;
+	float: left;
 }
 
+.message-entry-own .avatar {
+	margin-right: 0px;
+	margin-left: 10px;
+	float: right;
+}
 .message-entry .avatar {
-    margin-right: 20px;
+	margin-right: 10px;
+}
+.welcome-message-text .avatar {
+	margin-right: 10px;
+}
+.message-input .avatar {
+	display: none;
 }
 .message-entry-own {
-    max-width: initial;
-    flex-direction: row-reverse;
+	max-width: initial;
+	flex-direction: row-reverse;
 }
-
 /*This is user name of OTHER people in chat */
 .user-name {
-    color: #E6BB46;
-    font-weight: bold;
+	color: #886d21;
+	font-weight: bold;
 }
-
+/*feed is the actual container div for the injected li chat messages */
 .feed {
-    height: 45vh;
-    overflow: scroll;
-    margin-bottom: 5%;
+	height: 45vh;
+	overflow: scroll;
+	margin-bottom: 5%;
 }
 .feedback i {
-    color: #E6BB46;
+	color: #14574e;
 }
-
 .feedback {
-    position: absolute;
-    top: -25px;
-    left: 25px;
-    color: #FFF;
-    font-style: italic;
-    font-size: 16px;
+	position: absolute;
+	top: -25px;
+	left: 25px;
+	color: #FFF;
+	font-style: italic;
+	font-size: 16px;
 }
 .welcome-message-text .user-name {
-    color: #252535;
-    margin-right: 10px;
-}
-
-
-.message-input .avatar {
-    position: absolute;
-    
-    top: 82%;
-    transform: translateY(-50%);
-    background: #FFF;
-    text-align: center;
-    line-height: 25px;
-    font-weight: bold;
+	color: #252535;
+	margin-right: 10px;
 }
 
 .message-input-field {
-    position: relative;
-    box-sizing: border-box;
-    padding: 12px 12px 12px 12px;
-    color: rgba(8, 2, 2, 0.856);
-    width: 100%;
-    bottom: 0;
-   
-    border: solid #36747d 5px;
-    border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;}
+	position: relative;
+	padding: 12px 12px 12px 12px;
+	color: rgba(8, 2, 2, 0.856);
+	width: 100%;
+	bottom: 0;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	border: solid #36747d 5px;
+	border-radius: 4px;
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
 
-
-    /* #mydiv {
-        position: absolute;
-        z-index: 9;
-        background-color: #f1f1f1;
-        text-align: center;
-        border: 1px solid #d3d3d3;
-      } */
-      
-      #mydivheader {
-          height: 2em;
-          width: 2em;
-        padding: 10px;
-        cursor: move;
-        z-index: 112;
-        background-color: #2196F3;
-        color: #fff;
-      }
+/*This is the styling for the movebutton*/
+#mydivheader {
+	height: 3em;
+	width: 3em;
+	padding: 10px;
+	border-radius: 13%;
+	cursor: move;
+	z-index: 112;
+	margin: 0px;
+	padding: 0px;
+}
+.bi-arrows-move::before {
+	content: "\f14e";
+	color: #36747d;
+	font-size: x-large;
+}
