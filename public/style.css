@@ -160,7 +160,7 @@ hr:after {
 }
 /*feed is the actual container div for the injected li chat messages */
 .feed {
-	height: 45vh;
+	height: 44vh;
 	overflow: scroll;
 	margin-bottom: 5%;
 }
@@ -171,7 +171,7 @@ hr:after {
 	position: absolute;
 	top: -25px;
 	left: 25px;
-	color: #FFF;
+	color: rgba(0, 0, 0, 0.5);
 	font-style: italic;
 	font-size: 16px;
 }
