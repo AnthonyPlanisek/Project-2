@@ -3,8 +3,8 @@ $('#add-user').on('click', function (event) {
 
   const newAccount = {
     userName: $('#inputFirst').val().trim(),
-    email: $('#inputEmail').val().trim(),
-    password: $('#inputPassword').val().trim()
+    email: $('#registerEmail').val().trim(),
+    password: $('#registerPassword').val().trim()
   }
 
   if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.firstName.length > 0) {
