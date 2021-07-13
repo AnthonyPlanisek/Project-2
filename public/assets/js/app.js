@@ -2,9 +2,9 @@ $('#add-user').on('click', function (event) {
   event.preventDefault()
 
   const newAccount = {
-    userName: $('#inputFirst').val().trim(),
-    email: $('#inputEmail').val().trim(),
-    password: $('#inputPassword').val().trim()
+    firstName: $('#inputFirst').val().trim(),
+    email: $('#registerEmail').val().trim(),
+    password: $('#registerPassword').val().trim()
   }
 
   if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.firstName.length > 0) {
