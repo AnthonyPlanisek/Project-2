@@ -1,10 +1,11 @@
+
 /*This hides all scrollbars on the page(I dont want them in chat)*/
 ::-webkit-scrollbar {
 	display: none;
 }
 *:focus {
 	outline: none;
-}
+
 ::placeholder {
 	font-style: italic;
 	color: rgba(0, 0, 0, 0.527);

@@ -1,37 +1,19 @@
 body {
     font-family:'Concert One', cursive;
-    background-color: #36747d; 
+    background-color: #36747d;
 }
 
 .navbar {
     background-color: #36747d;
-    color: #FFF;
 }
 
 .container {
     margin-top: 25vh
 }
 
-#welcomeCard {
+.card {
     background-color: #36747d;
-    color: #FFF
-}
-
-#handWorld {
-    background-image: url('../images/geoguesser_example.jpg');
-    background-position: center center;
-    background-size: cover;
-    border-radius: 5px;
-
-}
-
-@media screen and (max-width: 991px) {
-    #handWorld {
-        display: none;
-    }
-    #cardText {
-        justify-content: center;
-    }
+    color:white;
 }
 
 .cb-slideshow,

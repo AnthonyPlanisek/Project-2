@@ -1,45 +1,54 @@
-{{> nav/nav-block user=false register=true}}
+{{> nav/nav-block user=false register=true }}
+{{#each css}}
+        <link rel="stylesheet" href="/css/{{this}}">
+    {{/each}}
+<body>
+    <div>
+        <ul class="cb-slideshow unstyled">
+          <li>
+            <span>Image 01</span>
+          </li>
+          <li>
+          <span>Image 02</span>
+        </li>
+        <li>
+          <span>Image 03</span>
+        </li>
+        <li>
+          <span>Image 04</span>
+          </li>
+          <li>
+          <span>Image 05</span>
+        </li>
+        <li>
+          <span>Image 06</span>
+        </li>
+      </ul>
 
-<div class="container">
-  <div class="row">
-    <div class="col col-md-12">
-      <header class="create-user-wrap header-wrap" align="center">
-        <h1>Create Your Account</h1>
-        <h3 id="create-err-msg"></h3>
-      </header>
-
-      <h3 id="err-msg"></h3>
-
-      <form id= "create-form">
-        <div class="form-row">
-
-        <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="inputLast">User Name</label>
-            <input type="text" class="form-control" id="inputLast" placeholder="Doe">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-5">
+        <div class="card">
+          <h2 class="card-title text-center mt-3 mb-0">Register</h2>
+          <div class="card-body py-md-4">
+            <form _lpchecked="1">
+            <div class="form-group">
+             <input type="text" class="form-control" id="registerName" placeholder="Name">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" id="registerEmail" placeholder="Email">
+            </div>           
+            <div class="form-group">
+              <input type="password" class="form-control" id="registerPassword" placeholder="Password">
+            </div>
+            <div class="d-flex justify-content-center">
+              <button id="add-user" class="btn btn-primary">Create Account</button>
+            </div>
+            </form>
           </div>
         </div>
-
-        <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="inputEmail">Email</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-          </div>
-        </div>
-
-        <div>
-          <h2 id="message"></h2>
-        </div>
-
-        <button type="submit" id="add-user" class="btn btn-primary">Submit</button>
-      </form>
+      </div>
     </div>
   </div>
-</div>
+</body>
+</html>
