@@ -87,14 +87,14 @@ db.sequelize.sync(syncOptions).then(() => {
       // socket.broadcast.emit('user connected', payload)
     })
 
-    socket.on('user typing', () => {
-      typers[socket.id] = 1
+    // socket.on('user typing', () => {
+    //   typers[socket.id] = 1
 
-      socket.broadcast.emit('user typing', {
-        user: users[socket.id].name,
-        typers: Object.keys(typers).length
-      })
-    })
+    //   socket.broadcast.emit('user typing', {
+    //     user: users[socket.id].name,
+    //     typers: Object.keys(typers).length
+    //   })
+    // })
 
     socket.on('user stopped typing', () => {
       delete typers[socket.id]
