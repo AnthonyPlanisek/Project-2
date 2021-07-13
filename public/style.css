@@ -5,7 +5,7 @@
 }
 *:focus {
 	outline: none;
-
+}
 ::placeholder {
 	font-style: italic;
 	color: rgba(0, 0, 0, 0.527);
