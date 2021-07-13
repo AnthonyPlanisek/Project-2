@@ -1,6 +1,3 @@
-// eslint-disable-next-line no-undef
-// const db = require('./models')
-// const axios = require('axios')
 const socket = io()
 let exampleName
 const xhr = new XMLHttpRequest()

@@ -2,7 +2,11 @@ $('#add-user').on('click', function (event) {
   event.preventDefault()
 
   const newAccount = {
+<<<<<<< HEAD
     userName: $('#inputFirst').val().trim(),
+=======
+    firstName: $('#inputFirst').val().trim(),
+>>>>>>> 894dbc959b009cb8ca2647034c713b099b6c438a
     email: $('#registerEmail').val().trim(),
     password: $('#registerPassword').val().trim()
   }
