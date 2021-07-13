@@ -13,9 +13,34 @@ xhr.addEventListener('readystatechange', function () {
     console.log(parsedData.userInfo)
     console.log(parsedData.userInfo.userName)
     exampleName = parsedData.userInfo.userName
+    document.getElementById('profileName').innerHTML = exampleName
   }
 })
 
+const cities = [
+  [{ lat: 40.7580, lng: -73.9855 }, { city: 'New York' }],
+  [{ lat: 34.0430, lng: -118.2673 }, { city: 'Los Angeles' }],
+  [{ lat: 41.8827, lng: -87.6233 }, { city: 'Chicago' }],
+  [{ lat: 25.7907, lng: -80.1300 }, { city: 'Miami' }],
+  [{ lat: 32.7473, lng: -97.0945 }, { city: 'Dallas' }],
+  [{ lat: 39.9496, lng: -75.1503 }, { city: 'Philadelphia' }],
+  [{ lat: 29.5518, lng: -95.0981 }, { city: 'Houston' }],
+  [{ lat: 33.7618, lng: -84.3945 }, { city: 'Atlanta' }],
+  [{ lat: 38.8893, lng: -77.0502 }, { city: 'Washington' }],
+  [{ lat: 42.3601, lng: -71.0942 }, { city: 'Boston' }],
+  [{ lat: 33.4453, lng: -112.0667 }, { city: 'Phoenix' }],
+  [{ lat: 47.6205, lng: -122.3493 }, { city: 'Seattle' }],
+  [{ lat: 37.8199, lng: -122.4783 }, { city: 'San Francisco' }],
+  [{ lat: 42.3385, lng: -83.0524 }, { city: 'Detroit' }],
+  [{ lat: 32.7137, lng: -117.1751 }, { city: 'San Diego' }],
+  [{ lat: 44.9736, lng: -93.2575 }, { city: 'Minneapolis' }],
+  [{ lat: 27.9759, lng: -82.5033 }, { city: 'Tampa' }]
+]
+
+const currentPlace = cities[Math.floor(Math.random() * (cities.length))] // Pick a random place to be spawned
+const coordinates = currentPlace[0] // Get coordinates
+console.log('test', coordinates)
+console.log('????', currentPlace)
 xhr.open('GET', 'http://localhost:3333/authuser') // change to heroku
 xhr.send()
 const dom = {
@@ -51,6 +76,7 @@ const addEntry = ({ user, message }, you) => {
             <p>${message}</p>
         </div>
     `
+  console.log('!!!!!!', message)
 
   dom.feed.appendChild(entry)
   const elmnt = document.getElementsByClassName('feed')
@@ -63,7 +89,7 @@ const addWelcomeMessage = (user, you) => {
   const welcomeMessage = document.createElement('li')
   const message = you
     ? 'You have joined the game'
-    : `<span class="user-name">${user.name}</span> has joined the game`
+    : `<span class="user-name">${exampleName}</span> has joined the game`
 
   const avatar = you ? '' : `<span class="avatar" style="background: ${user.avatar}; background-size: contain;"></span>`
 
