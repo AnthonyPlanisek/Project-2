@@ -116,7 +116,7 @@ hr:after {
 	max-width: 340px;
 	padding: 20px;
 	width: 20vw;
-	border-radius: 2%;
+	border-radius: 5% 5% 5% 5%;
 	border: solid #36747d 6px;
 	color: white;
 	box-shadow: 10px 10px rgba(0,0,0,.15);
@@ -165,7 +165,7 @@ hr:after {
 }
 /*feed is the actual container div for the injected li chat messages */
 .feed {
-	height: 44vh;
+	height:34vh;
 	overflow: scroll;
 	margin-bottom: 5%;
 }
@@ -179,6 +179,7 @@ hr:after {
 	color: rgba(0, 0, 0, 0.5);
 	font-style: italic;
 	font-size: 16px;
+	background-color: white;
 }
 .welcome-message-text .user-name {
 	color: #252535;
@@ -207,6 +208,7 @@ hr:after {
 	z-index: 112;
 	margin: 0px;
 	padding: 0px;
+	background-color: #212121;
 }
 .bi-arrows-move::before {
 	content: "\f14e";

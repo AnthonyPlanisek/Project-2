@@ -90,6 +90,7 @@ db.sequelize.sync(syncOptions).then(() => {
     socket.on('user typing', () => {
       typers[socket.id] = 1
 
+     console.log('users!!!!!!! ', users)
       socket.broadcast.emit('user typing', {
         user: users[socket.id].name,
         typers: Object.keys(typers).length
