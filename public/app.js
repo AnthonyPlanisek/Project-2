@@ -41,6 +41,9 @@ const currentPlace = cities[Math.floor(Math.random() * (cities.length))] // Pick
 const coordinates = currentPlace[0] // Get coordinates
 console.log('test', coordinates)
 console.log('????', currentPlace)
+console.log('1', currentPlace[1].city)
+const correctCity = currentPlace[1].city
+console.log('lower', correctCity.toLowerCase())
 xhr.open('GET', 'http://localhost:3333/authuser') // change to heroku
 xhr.send()
 const dom = {
@@ -77,6 +80,9 @@ const addEntry = ({ user, message }, you) => {
         </div>
     `
   console.log('!!!!!!', message)
+  if (message === correctCity.toLowerCase()) {
+    console.log('one point')
+  }
 
   dom.feed.appendChild(entry)
   const elmnt = document.getElementsByClassName('feed')
