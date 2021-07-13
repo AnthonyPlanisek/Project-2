@@ -1,4 +1,3 @@
-let exampleName
 const xhr = new XMLHttpRequest()
 xhr.withCredentials = true
 

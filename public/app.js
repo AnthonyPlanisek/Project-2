@@ -1,3 +1,6 @@
+// eslint-disable-next-line no-undef
+// const db = require('./models')
+// const axios = require('axios')
 const socket = io()
 let exampleName
 const xhr = new XMLHttpRequest()
@@ -79,6 +82,8 @@ const addEntry = ({ user, message }, you) => {
   console.log('!!!!!!', message)
   if (message === correctCity.toLowerCase()) {
     console.log('one point')
+
+    $.ajax({ method: 'POST', url: '/increasescore', data: { userId: 1 } })
   }
 
   dom.feed.appendChild(entry)

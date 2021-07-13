@@ -2,12 +2,12 @@ $('#add-user').on('click', function (event) {
   event.preventDefault()
 
   const newAccount = {
-    firstName: $('#inputFirst').val().trim(),
+    userName: $('#inputFirst').val().trim(),
     email: $('#registerEmail').val().trim(),
     password: $('#registerPassword').val().trim()
   }
 
-  if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.firstName.length > 0) {
+  if (newAccount.userName.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0) {
     $.ajax({
       type: 'POST',
       url: '/api/register',

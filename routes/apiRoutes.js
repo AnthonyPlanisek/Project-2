@@ -18,5 +18,9 @@ module.exports = (passport, db) => {
   router.post('/examples', AppController.createExample)
   router.delete('/examples/:id', AppController.deleteExample)
 
+  router.post('/increasescore', (req, res) => {
+    //  User.update(userScore: 2, { where: { userId: req.body.id }})
+  })
+
   return router
 }
