@@ -94,4 +94,4 @@ Feel free to reach about ways that you can contribute to this game code, or extr
 
 ## Questions
 
-If there are any questions regarding the repo, or any techincal issues, please feel free to contact us at: map.maraudersunc@gmail.com 
+If there are any questions regarding the repo, or any technical issues, please feel free to contact us at: map.maraudersunc@gmail.com 
