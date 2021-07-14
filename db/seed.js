@@ -16,6 +16,13 @@ module.exports = (db) => {
         description: 'Adam can\'t see this',
         UserId: 2
       })
+    }).then(() => {
+      db.Location.create({
+        id: 1,
+        lat: 40.7580,
+        lng: -73.9855,
+        city: 'New York'
+      })
     })
   })
 }

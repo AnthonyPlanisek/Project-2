@@ -152,10 +152,6 @@ socket.on('user connected', payload => {
   addWelcomeMessage(payload, false)
 })
 
-socket.on('user typing', ({ user, typers }) => {
-  dom.feedback.innerHTML = typers > 1 ? 'Several people are typing' : `<i>${user}</i> is typing`
-})
-
 socket.on('user stopped typing', typers => {
   if (!typers) {
     dom.feedback.innerHTML = ''
