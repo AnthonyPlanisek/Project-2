@@ -35,9 +35,10 @@
 	bottom: 0;
 	width: 100%;
 	background-color: var(--teal);
-	color: var(--light);
-	text-align: center;
-	height: 100%;
+	color: var(--teal);
+	
+	height: 10vh;
+	z-index: 2;
 }
 
 
@@ -63,6 +64,7 @@ time {
 	color: var(--dark);
 }
 p {
+	overflow: hidden;
 	margin: 10px 10px 0 0;
 	color: var(--dark);
 	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -103,12 +105,14 @@ hr:after {
 }
 /*this is the div of the googlemaps display(it needs this to fill the parent div)*/
 .geopic{
-	height: 100%;
+
+	height: 90vh;
 	width: 100%;
 }
 /*This is the parent div of the googlemaps display(adjust this to change size of the display img)*/
 .geobody {
-	height:85vh;
+	
+	height:100%;
 	width: 100vw;
 }
 /*This is the main div for the entire chat body*/
@@ -160,7 +164,7 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 	border-right: 0;
 	border-bottom: 0;
 	margin-top: -10px;
-	margin-right: -20px;
+	margin-right: -26px;
 	z-index: 0;
 }
 .message-body{
@@ -188,7 +192,7 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 	border-right: 0;
 	border-bottom: 0;
 	margin-top: -10px;
-	margin-right: -20px;
+	margin-right: -26px;
 	z-index: 0;
 	transform: rotate(134deg);
 }
@@ -322,10 +326,11 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 	background-color: var(--dark);
 	color: goldenrod;
 	text-align: center;
-	max-height: 5vh;
+	min-height: 50px;
+	max-height: 50px;
 	display: grid;
 	align-items: center;
-	height: 300px;
+	
 	right: 45%;
 	max-width: 300px;
 	min-width: 250px;
@@ -335,7 +340,7 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 	box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 .scorename {
-	color: goldenrod;
+	color: var(--dark);
 	margin-right: 10px;
 }
 #correctAnswer {
