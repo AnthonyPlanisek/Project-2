@@ -3,6 +3,7 @@
 // const axios = require('axios')
 const socket = io()
 let exampleName
+let gameScore
 const xhr = new XMLHttpRequest()
 xhr.withCredentials = true
 
@@ -12,8 +13,11 @@ xhr.addEventListener('readystatechange', function () {
     console.log('!!!!!', parsedData)
     console.log(parsedData.userInfo)
     console.log(parsedData.userInfo.userName)
+    console.log(parsedData.userInfo.userScore)
     exampleName = parsedData.userInfo.userName
+    gameScore = parsedData.userInfo.userScore
     document.getElementById('profileName').innerHTML = exampleName
+    document.getElementById('score').innerHTML = gameScore
   }
 })
 
