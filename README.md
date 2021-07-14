@@ -39,8 +39,11 @@ This project/application is covered under the MIT license.
 
 * [Install](#Install)
 * [Usage](#Usage)
+* [Features](#Features)
 * [Contribute](#Contribute)
 * [Questions](#Questions)
+
+
 <br>
     
 
@@ -82,7 +85,16 @@ The account management page allows users to reset passwords in the database as w
 <br>
 The game page has a lot of fun stuff. The we have our standard nav bar, as well as a score tracker in the footer. The main even is interactive google maps panoramic view overlayed with a socket.io chat. The stylized chat box allows you to interact with other uses as well as notifies you when your answer is correct. The page also refreshes after a correct answer to move onto the next round!
 <br>
-<img src="public/pics/GameScreen.png">
+<img src="public/pics/ChatStandard.png">
+<br>
+
+## Features
+<br>
+Some special features included in our game include the live chat, score tracking, user name, time the message was sent, and a spot for a unique avatar(meant for future development). When a message is sent the users profile name, current time, message itself, and avatar(custom in the future) will be displayed in the chat box. When a correct answer is submitted the correct message will illuminate and the game will reload for a new round. By reloading, the users score will update and a new location will be presented! The users score is saved in a database for current score updates, as well as player to player comparison in future updates!
+<br>
+<img src="public/pics/ChatCorrect.png">
+<br>
+<img src="public/pics/ChatWscore.png">
 <br>
 
 ## Contribute
