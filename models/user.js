@@ -42,7 +42,8 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.BLOB('long')
     },
     userScore: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      defaultValue: 1
     }
   }, {
     timestamps: true,
