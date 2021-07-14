@@ -82,8 +82,7 @@ const addEntry = ({ user, message }, you) => {
   console.log('!!!!!!', message)
   if (message === correctCity.toLowerCase()) {
     console.log('one point')
-    // write code for showing correct div
-    // $.ajax({ method: 'POST', url: '/increasescore', data: { userId: 1 } })
+    $.ajax({ type: 'POST', url: '/api/increasescore' })
   }
 
   dom.feed.appendChild(entry)
