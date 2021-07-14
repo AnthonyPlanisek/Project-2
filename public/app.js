@@ -86,7 +86,7 @@ const addEntry = ({ user, message }, you) => {
             <p>${message}</p>
         </div>
     `
-  console.log('!!!!!!', message)
+
   if (message === correctCity.toLowerCase()) {
     console.log('one point')
     document.getElementById('correctAnswer').style.display = 'block'

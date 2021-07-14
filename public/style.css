@@ -116,7 +116,8 @@ hr:after {
 	position: absolute;
 	top: 27%;
 	right: 10%;
-	background-color:rgb(97, 111, 126);
+	background-color: #36747d;
+
 	z-index: 10;
 	min-width: 340px;
 	max-width: 340px;
