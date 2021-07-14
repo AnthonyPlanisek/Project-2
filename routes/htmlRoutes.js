@@ -16,8 +16,9 @@ module.exports = (db) => {
   router.get('/chat', (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'chat.html'))
   })
+
   router.get('/authuser', (req, res) => {
-    console.log('hello', req.session.passport.user)
+    // console.log('hello', req.session.passport.user)
     db.User.findOne({
       where: {
         id: req.session.passport.user.id
