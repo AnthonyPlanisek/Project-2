@@ -82,6 +82,11 @@ const addEntry = ({ user, message }, you) => {
   console.log('!!!!!!', message)
   if (message === correctCity.toLowerCase()) {
     console.log('one point')
+    $(document).ready(function(){
+      setTimeout(function(){
+        location.reload(true);
+      }, 3000);
+    })
     $.ajax({ type: 'POST', url: '/api/increasescore' })
   }
 
