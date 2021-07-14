@@ -78,7 +78,7 @@ const addEntry = ({ user, message }, you) => {
   entry.innerHTML = `
         <span class="avatar" style="background: ${user.avatar}; background-size: contain;"></span>
         <div class="message-body">
-            <span class="user-name">${you ? 'You' : user.name}</span>
+            <span class="user-name">${you ? 'You' : user.name}</span><span class="user-name"> Score: ${user.score}</span>
             <time>@ ${date.getHours()}:${date.getMinutes()}</time>
             <p>${message}</p>
         </div>
@@ -86,6 +86,7 @@ const addEntry = ({ user, message }, you) => {
   console.log('!!!!!!', message)
   if (message === correctCity.toLowerCase()) {
     console.log('one point')
+    document.getElementById('correctAnswer').style.display = 'block'
     $(document).ready(function () {
       setTimeout(function () {
         location.reload(true)
@@ -125,8 +126,8 @@ const enterChannel = async () => {
   const avatar = getAvatar()
   console.log(exampleName)
   dom.joinButton.remove()
-  dom.welcomeMessage.remove()
-
+  // dom.welcomeMessage.remove()
+  console.log('av', avatar)
   dom.nameInput.value = ''
   dom.nameInput.placeholder = 'Send a message for the channel...'
 
@@ -136,12 +137,13 @@ const enterChannel = async () => {
 
   user.name = exampleName
   user.avatar = avatar
-
+  user.score = gameScore
   addWelcomeMessage({ avatar }, true)
 
   socket.emit('user connected', {
     exampleName,
-    avatar
+    avatar,
+    gameScore
   })
 }
 
