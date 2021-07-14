@@ -3,6 +3,7 @@
 // const axios = require('axios')
 const socket = io()
 let exampleName
+let gameScore
 const xhr = new XMLHttpRequest()
 xhr.withCredentials = true
 
@@ -12,8 +13,11 @@ xhr.addEventListener('readystatechange', function () {
     console.log('!!!!!', parsedData)
     console.log(parsedData.userInfo)
     console.log(parsedData.userInfo.userName)
+    console.log(parsedData.userInfo.userScore)
     exampleName = parsedData.userInfo.userName
+    gameScore = parsedData.userInfo.userScore
     document.getElementById('profileName').innerHTML = exampleName
+    document.getElementById('score').innerHTML = gameScore
   }
 })
 
@@ -74,7 +78,7 @@ const addEntry = ({ user, message }, you) => {
   entry.innerHTML = `
         <span class="avatar" style="background: ${user.avatar}; background-size: contain;"></span>
         <div class="message-body">
-            <span class="user-name">${you ? 'You' : user.name}</span>
+            <span class="user-name">${you ? 'You' : user.name}</span><span class="user-name"> Score: ${user.score}</span>
             <time>@ ${date.getHours()}:${date.getMinutes()}</time>
             <p>${message}</p>
         </div>
@@ -82,10 +86,11 @@ const addEntry = ({ user, message }, you) => {
   console.log('!!!!!!', message)
   if (message === correctCity.toLowerCase()) {
     console.log('one point')
-    $(document).ready(function(){
-      setTimeout(function(){
-        location.reload(true);
-      }, 3000);
+    document.getElementById('correctAnswer').style.display = 'block'
+    $(document).ready(function () {
+      setTimeout(function () {
+        location.reload(true)
+      }, 3000)
     })
     $.ajax({ type: 'POST', url: '/api/increasescore' })
   }
@@ -121,8 +126,8 @@ const enterChannel = async () => {
   const avatar = getAvatar()
   console.log(exampleName)
   dom.joinButton.remove()
-  dom.welcomeMessage.remove()
-
+  // dom.welcomeMessage.remove()
+  console.log('av', avatar)
   dom.nameInput.value = ''
   dom.nameInput.placeholder = 'Send a message for the channel...'
 
@@ -132,12 +137,13 @@ const enterChannel = async () => {
 
   user.name = exampleName
   user.avatar = avatar
-
+  user.score = gameScore
   addWelcomeMessage({ avatar }, true)
 
   socket.emit('user connected', {
     exampleName,
-    avatar
+    avatar,
+    gameScore
   })
 }
 

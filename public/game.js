@@ -1,3 +1,4 @@
+// let gameScore
 const xhr = new XMLHttpRequest()
 xhr.withCredentials = true
 
@@ -8,7 +9,9 @@ xhr.addEventListener('readystatechange', function () {
     console.log(parsedData.userInfo)
     console.log(parsedData.userInfo.userName)
     exampleName = parsedData.userInfo.userName
+    gameScore = parsedData.userInfo.userScore
     document.getElementById('welcomeCardname').innerHTML = exampleName
+    // document.getElementById('score').innerHTML = gameScore
   }
 })
 xhr.open('GET', 'http://localhost:3333/authuser') // change to heroku

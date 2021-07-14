@@ -23,9 +23,10 @@ module.exports = (db) => {
       where: {
         id: req.session.passport.user.id
       }
-    }).then(() => {
+    }).then((result) => {
+      console.log('///////', result)
       const user = {
-        userInfo: req.session.passport.user
+        userInfo: result
       }
       res.json(user)
     })
