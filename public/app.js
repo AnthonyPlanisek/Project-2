@@ -78,7 +78,7 @@ const addEntry = ({ user, message }, you) => {
   entry.innerHTML = `
         <span class="avatar" style="background: ${user.avatar}; background-size: contain;"></span>
         <div class="message-body">
-            <span class="user-name">${you ? 'You' : user.name}</span><span class="user-name"> Score: ${user.score}</span>
+            <span class="user-name">${you ? 'You' : user.name}</span><span class="user-name"> Score:</span><span class="scorename"> ${user.score}</span>
             <time>@ ${date.getHours()}:${date.getMinutes()}</time>
             <p>${message}</p>
         </div>
