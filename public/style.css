@@ -34,6 +34,28 @@
 	text-align: center;
 	height: 100%;
 }
+.score {
+	position: fixed;
+	
+	bottom: 0;
+	width: 20%;
+	background-color: #0d2326;
+	color: silver;
+	text-align: center;
+	max-height: 5vh;
+	display: grid;
+	align-items: center;
+	height: 300px;
+	right: 45%;
+	max-width: 300px;
+	min-width: 250px;
+	border-radius: 50px 50px 0 0 ;
+	border: solid white 1px;
+	border-bottom: none;
+	
+}
+
+
 
 body{
 	font-family:'Concert One', cursive;
@@ -200,14 +222,20 @@ hr:after {
 /*This is the styling for the movebutton*/
 #mydivheader {
 	height: 3em;
-	width: 3em;
+	width: 100%;
 	padding: 10px;
 	border-radius: 13%;
 	cursor: move;
 	z-index: 112;
 	margin: 0px;
 	padding: 0px;
-	background-color: #212121;
+}
+.Correct {
+	color: goldenrod;
+	margin-left: 3em;
+}
+#correctAnswer {
+	display: none;
 }
 .bi-arrows-move::before {
 	content: "\f14e";
