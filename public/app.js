@@ -18,6 +18,9 @@ xhr.addEventListener('readystatechange', function () {
     gameScore = parsedData.userInfo.userScore
     document.getElementById('profileName').innerHTML = exampleName
     document.getElementById('score').innerHTML = gameScore
+
+    // trigger event
+    dom.joinButton.click()
   }
 })
 
@@ -122,6 +125,12 @@ const addWelcomeMessage = (user, you) => {
   dom.feed.appendChild(welcomeMessage)
 }
 
+socket.on('connect', async() => {
+  console.log("Socket is connected")
+
+  
+})
+
 const enterChannel = async () => {
   const avatar = getAvatar()
   console.log(exampleName)
@@ -173,33 +182,30 @@ socket.on('send message', payload => {
 dom.joinButton.onclick = e => {
   e.preventDefault()
 
-  if (!dom.nameInput.value) {
-    dom.nameInput.parentElement.classList.add('error')
-  } else {
-    enterChannel()
+  enterChannel()
 
-    dom.nameInput.onkeyup = e => {
-      socket.emit('user typing')
+  dom.nameInput.onkeyup = e => {
+    socket.emit('user typing')
 
-      // If user presses enter
-      if (e.keyCode === 13) {
-        const message = e.target.value
+    // If user presses enter
+    if (e.keyCode === 13) {
+      const message = e.target.value
 
-        socket.emit('send message', {
-          message,
-          user
-        })
+      socket.emit('send message', {
+        message,
+        user
+      })
 
-        addEntry({ user, message }, true)
+      addEntry({ user, message }, true)
 
-        e.target.value = ''
-      }
+      e.target.value = ''
+    }
 
-      if (e.target.value === '') {
-        socket.emit('user stopped typing')
-      }
+    if (e.target.value === '') {
+      socket.emit('user stopped typing')
     }
   }
+  
 }
 
 // make chat area draggable

@@ -57,6 +57,7 @@ module.exports = (db) => {
   // Load dashboard page
   router.get('/', (req, res) => {
     if (req.isAuthenticated()) {
+      console.log("Chat Page");
       const user = {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
