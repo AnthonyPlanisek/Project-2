@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const ensureAuthenticated = require('../middleware/ensureAuthenticated')
-const User = require('../models/user')
+// const User = require('../models/user')
+let random = Math.floor(Math.random() * (3))
+console.log('////////////', random)
 module.exports = (passport, db) => {
   const AuthController = require('../controller/authController')(passport, db)
   const AppController = require('../controller/appController')(db)
@@ -39,5 +41,12 @@ module.exports = (passport, db) => {
       })
     })
   })
+
+  router.get('/location', (req, res) => {
+    db.Location.findOne({ where: { id: 1 } }).then(result => {
+      console.log('result Location!?', result)
+    })
+  })
+
   return router
 }

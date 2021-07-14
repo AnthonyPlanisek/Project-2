@@ -1,16 +1,17 @@
 module.exports = function (sequelize, DataTypes) {
   const Location = sequelize.define('Location', {
     id: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      primaryKey: true
     },
     lat: {
-      type: DataTypes.INTEGER
+      type: DataTypes.FLOAT
     },
     lng: {
-      type: DataTypes.INTEGER
+      type: DataTypes.FLOAT
     },
     city: {
-      type: DataTypes.STRING
+      type: DataTypes.FLOAT
     }
   })
 

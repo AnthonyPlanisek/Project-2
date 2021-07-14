@@ -7,6 +7,8 @@ let gameScore
 const xhr = new XMLHttpRequest()
 xhr.withCredentials = true
 
+$.ajax({ type: 'GET', url: '/api/location' })
+
 xhr.addEventListener('readystatechange', function () {
   if (this.readyState === 4) {
     const parsedData = JSON.parse(this.responseText)
@@ -43,8 +45,9 @@ const cities = [
 
 const currentPlace = cities[Math.floor(Math.random() * (cities.length))] // Pick a random place to be spawned
 const coordinates = currentPlace[0] // Get coordinates
-console.log('test', coordinates)
-console.log('????', currentPlace)
+
+console.log('coordinates', coordinates)
+console.log('currentplace', currentPlace)
 console.log('1', currentPlace[1].city)
 const correctCity = currentPlace[1].city
 console.log('lower', correctCity.toLowerCase())
