@@ -162,7 +162,7 @@ const enterChannel = async () => {
   dom.joinButton.remove()
   console.log('av', avatar)
   dom.nameInput.value = ''
-  dom.nameInput.placeholder = 'Send a message for the channel...'
+  dom.nameInput.placeholder = 'Type the city to score a point..'
 
   dom.inputAvatar.innerText = ''
   dom.inputAvatar.style.backgroundImage = avatar
