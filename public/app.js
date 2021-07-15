@@ -42,6 +42,9 @@ xhr.addEventListener('readystatechange', function () {
     gameScore = parsedData.userInfo.userScore
     document.getElementById('profileName').innerHTML = exampleName
     document.getElementById('score').innerHTML = gameScore
+
+    // trigger event
+    dom.joinButton.click()
   }
 })
 
@@ -110,7 +113,7 @@ const addEntry = ({ user, message }, you) => {
             <p>${message}</p>
         </div>
     `
-  console.log('!!!!!!', message)
+
   if (message === correctCity.toLowerCase()) {
     console.log('one point')
     document.getElementById('correctAnswer').style.display = 'block'
@@ -149,11 +152,14 @@ const addWelcomeMessage = (user, you) => {
   dom.feed.appendChild(welcomeMessage)
 }
 
+socket.on('connect', async () => {
+  console.log('Socket is connected')
+})
+
 const enterChannel = async () => {
   const avatar = getAvatar()
   console.log(exampleName)
   dom.joinButton.remove()
-  // dom.welcomeMessage.remove()
   console.log('av', avatar)
   dom.nameInput.value = ''
   dom.nameInput.placeholder = 'Send a message for the channel...'
@@ -196,31 +202,27 @@ socket.on('send message', payload => {
 dom.joinButton.onclick = e => {
   e.preventDefault()
 
-  if (!dom.nameInput.value) {
-    dom.nameInput.parentElement.classList.add('error')
-  } else {
-    enterChannel()
+  enterChannel()
 
-    dom.nameInput.onkeyup = e => {
-      socket.emit('user typing')
+  dom.nameInput.onkeyup = e => {
+    socket.emit('user typing')
 
-      // If user presses enter
-      if (e.keyCode === 13) {
-        const message = e.target.value
+    // If user presses enter
+    if (e.keyCode === 13) {
+      const message = e.target.value
 
-        socket.emit('send message', {
-          message,
-          user
-        })
+      socket.emit('send message', {
+        message,
+        user
+      })
 
-        addEntry({ user, message }, true)
+      addEntry({ user, message }, true)
 
-        e.target.value = ''
-      }
+      e.target.value = ''
+    }
 
-      if (e.target.value === '') {
-        socket.emit('user stopped typing')
-      }
+    if (e.target.value === '') {
+      socket.emit('user stopped typing')
     }
   }
 }
