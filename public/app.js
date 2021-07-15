@@ -48,7 +48,7 @@ xhr.addEventListener('readystatechange', function () {
   }
 })
 
-xhr.open('GET', 'http://localhost:3333/authuser')
+xhr.open('GET', 'https://map-marauders.herokuapp.com/authuser')
 
 xhr.send()
 
