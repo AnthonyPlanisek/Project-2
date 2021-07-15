@@ -125,17 +125,14 @@ const addWelcomeMessage = (user, you) => {
   dom.feed.appendChild(welcomeMessage)
 }
 
-socket.on('connect', async() => {
-  console.log("Socket is connected")
-
-  
+socket.on('connect', async () => {
+  console.log('Socket is connected')
 })
 
 const enterChannel = async () => {
   const avatar = getAvatar()
   console.log(exampleName)
   dom.joinButton.remove()
-  // dom.welcomeMessage.remove()
   console.log('av', avatar)
   dom.nameInput.value = ''
   dom.nameInput.placeholder = 'Send a message for the channel...'
@@ -205,7 +202,6 @@ dom.joinButton.onclick = e => {
       socket.emit('user stopped typing')
     }
   }
-  
 }
 
 // make chat area draggable

@@ -35,13 +35,10 @@
 	bottom: 0;
 	width: 100%;
 	background-color: var(--teal);
-	color: var(--light);
-	text-align: center;
-	height: 100%;
+	color: var(--teal);
+	height: 10vh;
+	z-index: 2;
 }
-
-
-
 body{
 	font-family:'Concert One', cursive;
 	overflow-y: scroll;
@@ -63,9 +60,12 @@ time {
 	color: var(--dark);
 }
 p {
+	overflow: hidden;
 	margin: 10px 10px 0 0;
 	color: var(--dark);
-	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-size: 13px;
+	font-weight: 500;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 hr {
 	border: 0;
@@ -78,7 +78,6 @@ hr:after {
 	letter-spacing: 8px;
 	font-weight: bold;
 }
-
 .message-entry-own .avatar {
 	left: 90%;
 }
@@ -90,12 +89,10 @@ hr:after {
 	font-size: .9em;
 	color: var(--dark);
 }
-
 .welcome-message-text .user-name {
 	color: var(--dark);
 	margin-right: 10px;
 }
-
 /*This hides the googlemap card showing where you are located*/
 .gm-iv-address{
 	display:none !important;
@@ -103,12 +100,12 @@ hr:after {
 }
 /*this is the div of the googlemaps display(it needs this to fill the parent div)*/
 .geopic{
-	height: 100%;
+	height: 90vh;
 	width: 100%;
 }
 /*This is the parent div of the googlemaps display(adjust this to change size of the display img)*/
 .geobody {
-	height:85vh;
+	height:100%;
 	width: 100vw;
 }
 /*This is the main div for the entire chat body*/
@@ -117,7 +114,6 @@ hr:after {
 	top: 27%;
 	right: 10%;
 	background-color: #36747d;
-
 	z-index: 10;
 	min-width: 340px;
 	max-width: 340px;
@@ -129,8 +125,6 @@ hr:after {
 	box-shadow: 10px 10px rgba(0,0,0,.15);
 	box-shadow: rgba(0, 0, 0, 0.349) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.377) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.322) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
-
-
 /*this is the color of YOUR user name in chat*/
 .message-entry-own .user-name {
 	color: var(--dark);
@@ -143,10 +137,10 @@ hr:after {
 	font-size: .75em;
 	margin: 12px;
 	padding: 12px;
-background-color: #86b3b9;	
-margin-left: 40%;
-border-radius: .4em;
-box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+	background-color: #86b3b9;
+	margin-left: 40%;
+	border-radius: .4em;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .message-entry-own .message-body:after {
 	content: '';
@@ -160,7 +154,7 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 	border-right: 0;
 	border-bottom: 0;
 	margin-top: -10px;
-	margin-right: -20px;
+	margin-right: -26px;
 	z-index: 0;
 }
 .message-body{
@@ -170,11 +164,10 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 	font-size: .75em;
 	margin: 12px;
 	padding: 12px;
-background-color: #b2c3c5;	
-margin-right: 40%;
-border-radius: .4em;
-box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
-
+	background-color: #b2c3c5;
+	margin-right: 40%;
+	border-radius: .4em;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .message-body::after{
 	content: '';
@@ -188,7 +181,7 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 	border-right: 0;
 	border-bottom: 0;
 	margin-top: -10px;
-	margin-right: -20px;
+	margin-right: -26px;
 	z-index: 0;
 	transform: rotate(134deg);
 }
@@ -208,16 +201,15 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 	float: right;
 	position: relative;
 	left: -5px;
-    top: -4px;
+	top: -4px;
 }
 .message-entry .avatar {
 	margin-right: 10px;
 	margin-left: 17px;
 	position: relative;
 	left: -5px;
-    top: -4px;
+	top: -4px;
 }
-
 .welcome-message-text .avatar {
 	margin-right: 10px;
 }
@@ -235,7 +227,7 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
 /*feed is the actual container div for the injected li chat messages */
 .feed {
-	background-color: white;
+	background-image: url(./pics/chat1.PNG);
 	border-radius: 5px;
 	height:34vh;
 	overflow: scroll;
@@ -259,19 +251,28 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 	color: var(--dark);
 	margin-right: 10px;
 }
-
+.welcome-message-text {
+	color: rgb(13, 61, 51);
+	border-radius: 3px;
+	background: white;
+	width: 200px;
+	margin-left: 45px;
+	padding: 3px;
+	border: rgb(223, 220, 220) solid 2px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
 .message-input-field {
 	position: relative;
 	padding: 12px 12px 12px 12px;
 	color: rgba(8, 2, 2, 0.856);
 	width: 100%;
 	bottom: 0;
-	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-weight: 500;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	border-radius: 4px;
 	box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 	border: #36747d solid 2px;
 }
-
 /*This is the styling for the movebutton*/
 #mydivheader {
 	height: 3em;
@@ -286,46 +287,34 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 .Correct {
 	margin-left:4.2em;
 	font: bold 20px arial, sans-serif;
-  background-color: #565656;
-  color: rgba(0, 0, 0, 0.418);
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
-  -webkit-background-clip: text;
-     -moz-background-clip: text;
-          background-clip: text;
-
+	background-color: #565656;
+	color: rgba(0, 0, 0, 0.418);
+	text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
 }
 .Correct2 {
 	margin-left:4.2em;
 	font: bold 20px arial, sans-serif;
-  background-color: gold;
- 
-  color: #fff;
-  text-shadow:
-      0 0 7px rgb(247, 242, 1),
-      0 0 10px #fff,
-      0 0 21px rgb(237, 248, 76),
-      0 0 42px rgb(238, 255, 0),
-      0 0 82px rgb(238, 255, 0),
-      0 0 92px rgb(255, 251, 0),
-      0 0 102px rgb(238, 255, 0),
-      0 0 151px rgb(217, 255, 0);
-  -webkit-background-clip: text;
-     -moz-background-clip: text;
-          background-clip: text;
-
+	background-color: gold;
+	color: #fff;
+	text-shadow:0 0 7px rgb(247, 242, 1),0 0 10px #fff,0 0 21px rgb(237, 248, 76),0 0 42px rgb(238, 255, 0),0 0 82px rgb(238, 255, 0),0 0 92px rgb(255, 251, 0),0 0 102px rgb(238, 255, 0),0 0 151px rgb(217, 255, 0);
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
 }
 .score {
 	position: fixed;
-	
 	bottom: 0;
 	width: 20%;
 	background-color: var(--dark);
 	color: goldenrod;
 	text-align: center;
-	max-height: 5vh;
+	min-height: 50px;
+	max-height: 50px;
 	display: grid;
 	align-items: center;
-	height: 300px;
 	right: 45%;
 	max-width: 300px;
 	min-width: 250px;
@@ -335,12 +324,12 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 	box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 .scorename {
-	color: goldenrod;
+	color: var(--dark);
 	margin-right: 10px;
 }
 #correctAnswer {
 	right: -30px;
-    top: -24px;
+	top: -24px;
 	position: relative;
 	display: none;
 }
