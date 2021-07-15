@@ -2,7 +2,7 @@ const router = require('express').Router()
 const ensureAuthenticated = require('../middleware/ensureAuthenticated')
 // const User = require('../models/user')
 let random = Math.floor(Math.random() * (3))
-console.log('////////////', random)
+// console.log('////////////', random)
 module.exports = (passport, db) => {
   const AuthController = require('../controller/authController')(passport, db)
   const AppController = require('../controller/appController')(db)
@@ -29,22 +29,23 @@ module.exports = (passport, db) => {
       //   }
       // })
       const newScore = parseInt(result.userScore) + 1
-      console.log('newscore', newScore)
-      console.log('res', result)
+      // console.log('newscore', newScore)
+      // console.log('res', result)
       db.User.update({
         userScore: newScore
       }, {
         where: { id: req.session.passport.user.id }
       }).then(result => {
-        console.log(result)
+        // console.log(result)
         res.json(result)
       })
     })
   })
 
   router.get('/location', (req, res) => {
-    db.Location.findOne({ where: { id: 1 } }).then(result => {
+    db.Location.findOne({ where: { id: random } }).then(result => {
       console.log('result Location!?', result)
+      res.json(result)
     })
   })
 

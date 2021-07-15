@@ -4,10 +4,32 @@
 const socket = io()
 let exampleName
 let gameScore
+// let randomLat
+// let randomLng
+// let data
+// let togetherdata
+// let randomLocation
 const xhr = new XMLHttpRequest()
 xhr.withCredentials = true
 
-$.ajax({ type: 'GET', url: '/api/location' })
+// loadNewMap = async () => {
+//   await $.ajax({ type: 'GET', url: '/api/location' }).then(result => {
+//     console.log('?????', result)
+//     randomLat = result.lat
+//     randomLng = result.lng
+//     console.log('LAT', randomLat)
+//     console.log('LNG', randomLng)
+//     console.log('city', result.city)
+//     console.log('togetherdata', { randomLat, randomLng })
+//     togetherdata = { randomLat, randomLng }
+//   })
+//   return togetherdata
+// }
+
+// console.log('togetherdata2222', { randomLat, randomLng })
+// console.log('testResult', randomLat)
+// const randomLocation = result
+// console.log('working!!!!', randomLocation)
 
 xhr.addEventListener('readystatechange', function () {
   if (this.readyState === 4) {
@@ -22,6 +44,10 @@ xhr.addEventListener('readystatechange', function () {
     document.getElementById('score').innerHTML = gameScore
   }
 })
+
+xhr.open('GET', 'http://localhost:3333/authuser')
+
+xhr.send()
 
 const cities = [
   [{ lat: 40.7580, lng: -73.9855 }, { city: 'New York' }],
@@ -51,8 +77,6 @@ console.log('currentplace', currentPlace)
 console.log('1', currentPlace[1].city)
 const correctCity = currentPlace[1].city
 console.log('lower', correctCity.toLowerCase())
-xhr.open('GET', 'http://localhost:3333/authuser') // change to heroku
-xhr.send()
 const dom = {
   nameInput: document.querySelector('.name-input'),
   joinButton: document.querySelector('.join'),

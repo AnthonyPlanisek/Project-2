@@ -11,7 +11,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.FLOAT
     },
     city: {
-      type: DataTypes.FLOAT
+      type: DataTypes.STRING
     }
   })
 
