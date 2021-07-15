@@ -14,5 +14,5 @@ xhr.addEventListener('readystatechange', function () {
     // document.getElementById('score').innerHTML = gameScore
   }
 })
-xhr.open('GET', 'http://localhost:3333/authuser') // change to heroku
+xhr.open('GET', 'https://map-marauders.herokuapp.com/authuser') // change to heroku
 xhr.send()
