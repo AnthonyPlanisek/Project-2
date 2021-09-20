@@ -3,8 +3,33 @@
 // const axios = require('axios')
 const socket = io()
 let exampleName
+let gameScore
+// let randomLat
+// let randomLng
+// let data
+// let togetherdata
+// let randomLocation
 const xhr = new XMLHttpRequest()
 xhr.withCredentials = true
+
+// loadNewMap = async () => {
+//   await $.ajax({ type: 'GET', url: '/api/location' }).then(result => {
+//     console.log('?????', result)
+//     randomLat = result.lat
+//     randomLng = result.lng
+//     console.log('LAT', randomLat)
+//     console.log('LNG', randomLng)
+//     console.log('city', result.city)
+//     console.log('togetherdata', { randomLat, randomLng })
+//     togetherdata = { randomLat, randomLng }
+//   })
+//   return togetherdata
+// }
+
+// console.log('togetherdata2222', { randomLat, randomLng })
+// console.log('testResult', randomLat)
+// const randomLocation = result
+// console.log('working!!!!', randomLocation)
 
 xhr.addEventListener('readystatechange', function () {
   if (this.readyState === 4) {
@@ -12,10 +37,20 @@ xhr.addEventListener('readystatechange', function () {
     console.log('!!!!!', parsedData)
     console.log(parsedData.userInfo)
     console.log(parsedData.userInfo.userName)
+    console.log(parsedData.userInfo.userScore)
     exampleName = parsedData.userInfo.userName
+    gameScore = parsedData.userInfo.userScore
     document.getElementById('profileName').innerHTML = exampleName
+    document.getElementById('score').innerHTML = gameScore
+
+    // trigger event
+    dom.joinButton.click()
   }
 })
+
+xhr.open('GET', 'https://map-marauders.herokuapp.com/authuser')
+
+xhr.send()
 
 const cities = [
   [{ lat: 40.7580, lng: -73.9855 }, { city: 'New York' }],
@@ -39,13 +74,12 @@ const cities = [
 
 const currentPlace = cities[Math.floor(Math.random() * (cities.length))] // Pick a random place to be spawned
 const coordinates = currentPlace[0] // Get coordinates
-console.log('test', coordinates)
-console.log('????', currentPlace)
+
+console.log('coordinates', coordinates)
+console.log('currentplace', currentPlace)
 console.log('1', currentPlace[1].city)
 const correctCity = currentPlace[1].city
 console.log('lower', correctCity.toLowerCase())
-xhr.open('GET', 'http://localhost:3333/authuser') // change to heroku
-xhr.send()
 const dom = {
   nameInput: document.querySelector('.name-input'),
   joinButton: document.querySelector('.join'),
@@ -74,16 +108,21 @@ const addEntry = ({ user, message }, you) => {
   entry.innerHTML = `
         <span class="avatar" style="background: ${user.avatar}; background-size: contain;"></span>
         <div class="message-body">
-            <span class="user-name">${you ? 'You' : user.name}</span>
+            <span class="user-name">${you ? 'You' : user.name}</span><span class="user-name"> Score:</span><span class="scorename"> ${user.score}</span>
             <time>@ ${date.getHours()}:${date.getMinutes()}</time>
             <p>${message}</p>
         </div>
     `
-  console.log('!!!!!!', message)
+
   if (message === correctCity.toLowerCase()) {
     console.log('one point')
-
-    // $.ajax({ method: 'POST', url: '/increasescore', data: { userId: 1 } })
+    document.getElementById('correctAnswer').style.display = 'block'
+    $(document).ready(function () {
+      setTimeout(function () {
+        location.reload(true)
+      }, 3000)
+    })
+    $.ajax({ type: 'POST', url: '/api/increasescore' })
   }
 
   dom.feed.appendChild(entry)
@@ -97,7 +136,7 @@ const addWelcomeMessage = (user, you) => {
   const welcomeMessage = document.createElement('li')
   const message = you
     ? 'You have joined the game'
-    : `<span class="user-name">${exampleName}</span> has joined the game`
+    : `<span class="user-name"> New User </span> has joined the game`
 
   const avatar = you ? '' : `<span class="avatar" style="background: ${user.avatar}; background-size: contain;"></span>`
 
@@ -113,14 +152,17 @@ const addWelcomeMessage = (user, you) => {
   dom.feed.appendChild(welcomeMessage)
 }
 
+socket.on('connect', async () => {
+  console.log('Socket is connected')
+})
+
 const enterChannel = async () => {
   const avatar = getAvatar()
   console.log(exampleName)
   dom.joinButton.remove()
-  dom.welcomeMessage.remove()
-
+  console.log('av', avatar)
   dom.nameInput.value = ''
-  dom.nameInput.placeholder = 'Send a message for the channel...'
+  dom.nameInput.placeholder = 'Type the city to score a point..'
 
   dom.inputAvatar.innerText = ''
   dom.inputAvatar.style.backgroundImage = avatar
@@ -128,22 +170,19 @@ const enterChannel = async () => {
 
   user.name = exampleName
   user.avatar = avatar
-
+  user.score = gameScore
   addWelcomeMessage({ avatar }, true)
 
   socket.emit('user connected', {
     exampleName,
-    avatar
+    avatar,
+    gameScore
   })
 }
 
 socket.on('user connected', payload => {
   console.log('New user connected', payload)
   addWelcomeMessage(payload, false)
-})
-
-socket.on('user typing', ({ user, typers }) => {
-  dom.feedback.innerHTML = typers > 1 ? 'Several people are typing' : `<i>${user}</i> is typing`
 })
 
 socket.on('user stopped typing', typers => {
@@ -163,31 +202,27 @@ socket.on('send message', payload => {
 dom.joinButton.onclick = e => {
   e.preventDefault()
 
-  if (!dom.nameInput.value) {
-    dom.nameInput.parentElement.classList.add('error')
-  } else {
-    enterChannel()
+  enterChannel()
 
-    dom.nameInput.onkeyup = e => {
-      socket.emit('user typing')
+  dom.nameInput.onkeyup = e => {
+    socket.emit('user typing')
 
-      // If user presses enter
-      if (e.keyCode === 13) {
-        const message = e.target.value
+    // If user presses enter
+    if (e.keyCode === 13) {
+      const message = e.target.value
 
-        socket.emit('send message', {
-          message,
-          user
-        })
+      socket.emit('send message', {
+        message,
+        user
+      })
 
-        addEntry({ user, message }, true)
+      addEntry({ user, message }, true)
 
-        e.target.value = ''
-      }
+      e.target.value = ''
+    }
 
-      if (e.target.value === '') {
-        socket.emit('user stopped typing')
-      }
+    if (e.target.value === '') {
+      socket.emit('user stopped typing')
     }
   }
 }
